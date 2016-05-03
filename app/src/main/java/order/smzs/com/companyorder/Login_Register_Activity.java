@@ -3,8 +3,6 @@ package order.smzs.com.companyorder;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -43,55 +41,19 @@ public class Login_Register_Activity extends AppCompatActivity {
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new Thread(networkTask).start();
+                JSONObject jsonObject = new JSONObject();
+                try {
+                    jsonObject.put("pass_Word", "345");
+                    jsonObject.put("user_id", "1000");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                String strUrlPath = "http://192.168.19.47/UserLogin.php";
+                HttpUtils_new HttpUtils_new = new HttpUtils_new(strUrlPath,jsonObject,new BackListener());
+                ThreadPoolUtils.execute(HttpUtils_new);
             }
         });
     }
-
-    Handler handler = new Handler(){
-
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            Bundle data = msg.getData();
-            String val = data.getString("value");
-            Log.i("mylog", "请求结果为-->" + val);
-        }
-    };
-
-    Runnable networkTask = new Runnable() {
-
-        @Override
-        public void run() {
-            // TODO
-            // 在这里进行 http request.网络请求相关操作
-           String res = RecSmsToPost();
-            Message msg = new Message();
-            Bundle data = new Bundle();
-            data.putString("value", res);
-            msg.setData(data);
-            handler.sendMessage(msg);
-        }
-    };
-
-
-    private String RecSmsToPost(){
-
-        JSONObject jsonObject = new JSONObject();
-        try {
-            jsonObject.put("pass_Word", "345");
-            jsonObject.put("user_id", "1000");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        String strUrlPath = "http://192.168.19.47/UserLogin.php";
-        String strResult = HttpUtils.sendPostMessage(strUrlPath, jsonObject,"utf-8");
-        Log.i("res",strResult);
-        return strResult;
-    }
-
-
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -102,5 +64,21 @@ public class Login_Register_Activity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    class BackListener implements HttpUtils_new.CallbackListener {
+
+        @Override
+        public void callBack(String result) {
+
+            try {
+                JSONObject js = new JSONObject(result);
+                String res = js.getString("retcode");
+                Log.i("TAG",res);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 
 }
