@@ -1,22 +1,34 @@
 package order.smzs.com.companyorder;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import order.smzs.com.companyorder.util.Constants;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private TextView mTextView;
+    private LinearLayout linearLayout;
+    private RelativeLayout linearLayout1;
+    private ImageView mImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,32 +38,49 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
+
+
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         View nav_view = navigationView.inflateHeaderView(R.layout.nav_nologin_header_main);
+        navigationView.inflateHeaderView(R.layout.nav_header_main);
+
+
+        View ss = navigationView.getHeaderView(0);
+        linearLayout = (LinearLayout) ss.findViewById(R.id.login_sc);
+        mImageView = (ImageView) ss.findViewById(R.id.imageView);
+        mImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Login_Register_Activity.startAct(MainActivity.this);
+            }
+        });
+
+        linearLayout1 = (RelativeLayout) nav_view.findViewById(R.id.login_ng);
         mTextView = (TextView) nav_view.findViewById(R.id.tv_login);
         mTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"跳转", Toast.LENGTH_LONG).show();
                 Login_Register_Activity.startAct(MainActivity.this);
             }
         });
         navigationView.setNavigationItemSelectedListener(this);
+
+        // 判断是否第一次启动
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean firstTime = preferences.getBoolean("first_time", true);
+        Log.i("firstTime", firstTime + "");
+        if (firstTime) {
+            // 写入sharedpreferences
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putBoolean("first_time", false);
+            editor.commit();
+        }
     }
 
     @Override
@@ -77,9 +106,15 @@ public class MainActivity extends AppCompatActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
+        SharedPreferences shrae = this.getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+        final SharedPreferences.Editor edit = shrae.edit();
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            edit.putInt("ISLOGIN",0);
+            edit.commit();
+            Constants.ISLOGIN = false;
+            onResume();
+            Toast.makeText(MainActivity.this,"退出登录",Toast.LENGTH_SHORT).show();
             return true;
         }
 
@@ -111,4 +146,16 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    @Override
+    protected void onResume() {
+        if(Constants.ISLOGIN){
+            linearLayout.setVisibility(View.VISIBLE);
+            linearLayout1.setVisibility(View.GONE);
+        }
+        if(!Constants.ISLOGIN){
+            linearLayout.setVisibility(View.GONE);
+            linearLayout1.setVisibility(View.VISIBLE);
+        }
+        super.onResume();
+    }
 }
