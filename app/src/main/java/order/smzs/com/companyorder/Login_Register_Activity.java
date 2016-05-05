@@ -26,15 +26,16 @@ import order.smzs.com.companyorder.util.ThreadPoolUtils;
 
 public class Login_Register_Activity extends AppCompatActivity {
 
-    private Button mButton,btn_register;
-    private EditText userName,passWord;
+    private Button mButton, btn_register;
+    private EditText userName, passWord;
     private CheckBox isLogin;
-    private String userNameValue,passWordValue,MD5passWord;
+    private String userNameValue, passWordValue, MD5passWord;
     private SharedPreferences sp;
     private String url = "http://192.168.19.47/UserLogin.php";
     private JSONObject jsonObject = new JSONObject();
-    public static void startAct(Activity context){
-        Intent intent = new Intent(context,Login_Register_Activity.class);
+
+    public static void startAct(Activity context) {
+        Intent intent = new Intent(context, Login_Register_Activity.class);
         context.startActivity(intent);
     }
 
@@ -57,11 +58,12 @@ public class Login_Register_Activity extends AppCompatActivity {
                 startLogin();
             }
         });
-
+        btn_register = (Button) findViewById(R.id.btn_register);
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+//                Register_Activity.startAct(Login_Register_Activity.this);
+                enterSecond();
             }
         });
 
@@ -69,16 +71,16 @@ public class Login_Register_Activity extends AppCompatActivity {
         isLogin.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isLogin.isChecked()){
+                if (isLogin.isChecked()) {
                     //记住密码
                     sp.edit().putBoolean("ISCHECK", true).commit();
-                }else{
+                } else {
                     //没有记住密码
                     sp.edit().putBoolean("ISCHECK", false).commit();
                 }
             }
         });
-        if(sp.getBoolean("ISCHECK",false)){
+        if (sp.getBoolean("ISCHECK", false)) {
             isLogin.setChecked(true);
             userName.setText(sp.getString("USER_NAME", ""));
             passWord.setText(sp.getString("PASSWORD", ""));
@@ -88,7 +90,7 @@ public class Login_Register_Activity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // TODO Auto-generated method stub
-        if(item.getItemId() == android.R.id.home){
+        if (item.getItemId() == android.R.id.home) {
             finish();
             return true;
         }
@@ -98,55 +100,88 @@ public class Login_Register_Activity extends AppCompatActivity {
     /***
      * 开始登陆
      */
-    public void startLogin(){
+    public void startLogin() {
         userNameValue = userName.getText().toString();
         passWordValue = passWord.getText().toString();
         EncrypMD5 md5 = new EncrypMD5();
         MD5passWord = md5.encrypt(passWordValue);
         try {
-            jsonObject.put("user_id",userNameValue);
-            jsonObject.put("pass_Word",MD5passWord);
+            jsonObject.put("user_id", userNameValue);
+            jsonObject.put("pass_Word", MD5passWord);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        HttpUtils_new httpUtils_new = new HttpUtils_new(url,jsonObject,new BackListener());
+        HttpUtils_new httpUtils_new = new HttpUtils_new(url, jsonObject, new BackListener());
         ThreadPoolUtils.execute(httpUtils_new);
 
     }
+
     class BackListener implements HttpUtils_new.CallbackListener {
 
         @Override
         public void callBack(String result) {
-            if(!TextUtils.isEmpty(result)){
+            if (!TextUtils.isEmpty(result)) {
                 try {
                     JSONObject jo = new JSONObject(result);
-                    if("200".equals(jo.getString("retcode"))){//服务器返回错误
+                    if ("200".equals(jo.getString("retcode"))) {//服务器返回错误
                         Toast.makeText(Login_Register_Activity.this, jo.getString("code"), Toast.LENGTH_SHORT).show();
                     }
-                    if("300".equals(jo.getString("retcode"))){//参数传递错误
+                    if ("300".equals(jo.getString("retcode"))) {//参数传递错误
                         Toast.makeText(Login_Register_Activity.this, jo.getString("code"), Toast.LENGTH_SHORT).show();
                     }
-                    if("100".equals(jo.getString("retcode"))){//登陆成功
+                    if ("100".equals(jo.getString("retcode"))) {//登陆成功
                         Toast.makeText(Login_Register_Activity.this, jo.getString("code"), Toast.LENGTH_SHORT).show();
                         Constants.ISLOGIN = true;
+                        Constants.USERID = jo.getString("user_id");
                         editSp();
                         finish();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-            }else{
+            } else {
                 Toast.makeText(Login_Register_Activity.this, "请检查网络连接！", Toast.LENGTH_SHORT).show();
             }
         }
     }
 
-    public void editSp(){
+    public void editSp() {
         //0未登录，1登陆
         SharedPreferences.Editor editor = sp.edit();
         editor.putString("USER_NAME", userNameValue);
-        editor.putString("PASSWORD",passWordValue);
-        editor.putInt("ISLOGIN",1);
+        editor.putString("PASSWORD", passWordValue);
+        editor.putInt("ISLOGIN", 1);
         editor.commit();
     }
+
+    public void enterSecond() {
+        Intent intent=new Intent(this,Register_Activity.class);
+        startActivityForResult(intent, 100);
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode==100) {
+            if(resultCode==100) {
+                String username=data.getStringExtra("username");
+                String password=data.getStringExtra("password");
+                String toast=data.getStringExtra("toast");
+
+                Toast.makeText(Login_Register_Activity.this, toast, Toast.LENGTH_SHORT).show();
+
+                userName.setText(username);
+                passWord.setText(password);
+
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putString("USER_NAME", username);
+                editor.putString("PASSWORD", password);
+                editor.putInt("ISLOGIN", 1);
+                editor.putBoolean("ISCHECK", true);
+                editor.commit();
+                isLogin.setChecked(true);
+                startLogin();
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
 }

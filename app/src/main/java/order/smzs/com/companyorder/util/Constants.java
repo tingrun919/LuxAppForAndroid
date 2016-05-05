@@ -5,4 +5,5 @@ package order.smzs.com.companyorder.util;
  */
 public class Constants {
     public static boolean ISLOGIN = false;
+    public static String USERID = "";
 }
