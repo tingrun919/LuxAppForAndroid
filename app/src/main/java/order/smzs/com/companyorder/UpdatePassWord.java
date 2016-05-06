@@ -1,5 +1,7 @@
 package order.smzs.com.companyorder;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -27,6 +29,11 @@ public class UpdatePassWord extends AppCompatActivity{
     private String zh,mm,mm2,url="http://192.168.19.47/UpdatePassWord.php";
     private Button btn_udpw;
     private JSONObject jsonObject = new JSONObject();
+
+    public static void startAct(Activity context){
+        Intent intent = new Intent(context,UpdatePassWord.class);
+        context.startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +99,6 @@ public class UpdatePassWord extends AppCompatActivity{
             }
         }
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

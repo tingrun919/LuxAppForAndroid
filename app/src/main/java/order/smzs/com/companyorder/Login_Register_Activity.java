@@ -132,7 +132,7 @@ public class Login_Register_Activity extends AppCompatActivity {
                     if ("100".equals(jo.getString("retcode"))) {//登陆成功
                         Toast.makeText(Login_Register_Activity.this, jo.getString("code"), Toast.LENGTH_SHORT).show();
                         Constants.ISLOGIN = true;
-                        Constants.USERID = jo.getString("user_id");
+                        Constants.USERID = jo.getJSONObject("result").getString("user_id");
                         editSp();
                         finish();
                     }

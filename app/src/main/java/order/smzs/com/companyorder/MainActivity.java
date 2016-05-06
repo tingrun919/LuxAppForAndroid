@@ -130,6 +130,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_camera) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
+            Toast.makeText(MainActivity.this,"订餐",Toast.LENGTH_LONG).show();
 
         } else if (id == R.id.nav_slideshow) {
 
@@ -138,9 +139,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
-
-
-
+            //修改密码
+            UpdatePassWord.startAct(MainActivity.this);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
