@@ -128,16 +128,15 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
+            //我要订餐
         } else if (id == R.id.nav_gallery) {
-            Toast.makeText(MainActivity.this,"订餐",Toast.LENGTH_LONG).show();
-
+            //订餐信息查询
         } else if (id == R.id.nav_slideshow) {
-
+            //订餐信息修改
         } else if (id == R.id.nav_manage) {
-
+            //餐厅列表
         } else if (id == R.id.nav_share) {
-
+            //修改昵称
         } else if (id == R.id.nav_send) {
             //修改密码
             UpdatePassWord.startAct(MainActivity.this);

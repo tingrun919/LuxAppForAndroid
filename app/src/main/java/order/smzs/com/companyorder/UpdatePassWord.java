@@ -41,6 +41,7 @@ public class UpdatePassWord extends AppCompatActivity{
         setContentView(R.layout.updatepassword_main);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("修改密码");
 
         ud_zh = (EditText) findViewById(R.id.ud_zh);
         ud_mm = (EditText) findViewById(R.id.ud_mm);
