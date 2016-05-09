@@ -10,4 +10,11 @@
     <string name="register_btn">注册</string>
     <string name="register_btn2">立即注册</string>
     <string name="ud_ps">确认修改</string>
+
+
+    <string name="hello">PTRRV</string>
+    <string name="nomoredata">no data any more</string>
+    <string name="gridview_mode">GridView Mode</string>
+    <string name="listview_mode">ListView Mode</string>
+    <string name="demo_loadmore">-loading-</string>
 </resources>

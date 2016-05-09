@@ -6,10 +6,12 @@
     android:orientation="vertical"
     android:background="@color/loginColor"
     >
-<android.support.v7.widget.ListViewCompat
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent">
+    <com.lhh.ptrrv.library.PullToRefreshRecyclerView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/pv_test"
+        >
 
-</android.support.v7.widget.ListViewCompat>
 
+    </com.lhh.ptrrv.library.PullToRefreshRecyclerView>
 </LinearLayout>

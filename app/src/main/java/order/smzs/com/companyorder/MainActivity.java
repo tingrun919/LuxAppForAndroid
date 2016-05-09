@@ -1,6 +1,7 @@
 package order.smzs.com.companyorder;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -129,12 +130,20 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             //我要订餐
+            MainActivity.this.
+                    startActivity(
+                            new Intent(MainActivity.this, order.smzs.com.companyorder.pull.PtrrvListViewMode.class));
         } else if (id == R.id.nav_gallery) {
             //订餐信息查询
         } else if (id == R.id.nav_slideshow) {
             //订餐信息修改
         } else if (id == R.id.nav_manage) {
             //餐厅列表
+
+
+            MainActivity.this.
+                    startActivity(
+                            new Intent(MainActivity.this, order.smzs.com.companyorder.pull.PtrrvListViewMode.class));
         } else if (id == R.id.nav_share) {
             //修改昵称
         } else if (id == R.id.nav_send) {
