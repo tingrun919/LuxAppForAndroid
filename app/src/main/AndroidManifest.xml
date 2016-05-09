@@ -26,6 +26,10 @@
         <activity android:name=".Login_Register_Activity"></activity>
         <activity android:name=".Register_Activity"></activity>
         <activity android:name=".UpdatePassWord"></activity>
+        <activity android:name=".HotolList_Activity"></activity>
+
+        <activity android:name=".pull.PtrrvListViewMode"></activity>
+        <activity android:name=".pull.PtrrvGridViewMode"></activity>
     </application>
 
 </manifest>
