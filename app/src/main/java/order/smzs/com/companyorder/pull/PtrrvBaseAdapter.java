@@ -3,7 +3,10 @@ package order.smzs.com.companyorder.pull;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.List;
 
 /**
  * Created by linhonghong on 2015/11/13.
@@ -44,6 +47,31 @@ public class PtrrvBaseAdapter<VH extends RecyclerView.ViewHolder> extends Recycl
 
     public Object getItem(int position){
         return null;
+    }
+
+    public interface OnItemClickLitener{
+        void onItemClick(View view, int position);
+    }
+
+
+    private OnItemClickLitener mOnItemClickLitener;
+
+
+    public void setOnItemClickLitener(OnItemClickLitener mOnItemClickLitener)
+    {
+        this.mOnItemClickLitener = mOnItemClickLitener;
+    }
+
+    @Override
+    public void onBindViewHolder(final VH holder, int position, List<Object> payloads) {
+        super.onBindViewHolder(holder, position, payloads);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int pos = holder.getLayoutPosition();
+                mOnItemClickLitener.onItemClick(holder.itemView, pos);
+            }
+        });
     }
 }
 
