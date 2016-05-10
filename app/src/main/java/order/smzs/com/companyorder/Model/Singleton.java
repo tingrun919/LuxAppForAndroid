@@ -7,13 +7,19 @@ import java.io.Serializable;
  */
 public class Singleton implements Serializable {
 
+        //用户 ID
         public String user_id;
+        // 用户昵称
         public String user_nickname;
+        // 用户头像
         public String user_img;
+        // 用户名称
         public String user_Name;
+        // 用户权限
         public String user_indetify;
+        // 是否登录
         public boolean isLogin;
-
+        // 服务器地址
         public String httpServer;
 
            private static class SingletonHolder {
@@ -42,8 +48,24 @@ public class Singleton implements Serializable {
 
                 /**
           * readResolve方法应对单例对象被序列化时候
-          */
-                private Object readResolve() {
+          */private Object readResolve() {
                 return getInstance();
            }
+
+    /**
+     * 单例清空
+     */
+
+    public static Singleton cleanUserMessage(){
+
+        SingletonHolder.INSTANCE.user_id = null;
+        SingletonHolder.INSTANCE.user_nickname = null;
+        SingletonHolder.INSTANCE.user_img = null;
+        SingletonHolder.INSTANCE.user_Name = null;
+        SingletonHolder.INSTANCE.user_indetify = null;
+        SingletonHolder.INSTANCE.isLogin = false;
+
+        return SingletonHolder.INSTANCE;
     }
+
+}
