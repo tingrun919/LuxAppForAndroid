@@ -1,10 +1,18 @@
 [
     {
-        "merged": "D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-tvdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png",
-        "source": "D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\drawable-tvdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png"
+        "merged": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-tvdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png",
+        "source": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\drawable-tvdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png"
     },
     {
-        "merged": "D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-tvdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png",
-        "source": "D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\drawable-tvdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
+        "merged": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-tvdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png",
+        "source": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\drawable-tvdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/build/intermediates/res/merged/androidTest/debug/drawable-tvdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png",
+        "source": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/drawable-tvdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/build/intermediates/res/merged/androidTest/debug/drawable-tvdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png",
+        "source": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/drawable-tvdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png"
     }
 ]

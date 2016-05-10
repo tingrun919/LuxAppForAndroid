@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\values-w360dp-v13\\values-w360dp-v13.xml",
+        "outputFile": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\values-w360dp-v13\\values-w360dp-v13.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,31 @@
                     "endOffset": 105
                 },
                 "from": {
-                    "file": "D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\values-w360dp-v13\\values.xml",
+                    "file": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\values-w360dp-v13\\values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 294,
+                        "endColumn": 54,
+                        "endOffset": 344
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/build/intermediates/res/merged/release/values-w360dp-v13/values-w360dp-v13.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 54,
+                    "endOffset": 105
+                },
+                "from": {
+                    "file": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/values-w360dp-v13/values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,

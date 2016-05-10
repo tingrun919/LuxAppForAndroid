@@ -58,6 +58,8 @@ public class PullToRefreshRecyclerView extends SwipeRefreshLayout implements Prv
 
     private PullToRefreshRecyclerViewUtil mPtrrvUtil;
 
+
+
     public interface PagingableListener{
         void onLoadMoreItems();
     }

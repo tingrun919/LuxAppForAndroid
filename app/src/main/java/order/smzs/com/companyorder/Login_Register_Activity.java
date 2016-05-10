@@ -19,10 +19,12 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import order.smzs.com.companyorder.model.Singleton;
 import order.smzs.com.companyorder.util.Constants;
 import order.smzs.com.companyorder.util.EncrypMD5;
 import order.smzs.com.companyorder.util.HttpUtils_new;
 import order.smzs.com.companyorder.util.ThreadPoolUtils;
+
 
 public class Login_Register_Activity extends AppCompatActivity {
 
@@ -111,7 +113,7 @@ public class Login_Register_Activity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        HttpUtils_new httpUtils_new = new HttpUtils_new(url, jsonObject, new BackListener());
+        HttpUtils_new httpUtils_new = new HttpUtils_new(String.format("%s%s",Singleton.getInstance().httpServer,"/UserLogin.php"), jsonObject, new BackListener());
         ThreadPoolUtils.execute(httpUtils_new);
 
     }
@@ -133,6 +135,14 @@ public class Login_Register_Activity extends AppCompatActivity {
                         Toast.makeText(Login_Register_Activity.this, jo.getString("code"), Toast.LENGTH_SHORT).show();
                         Constants.ISLOGIN = true;
                         Constants.USERID = jo.getJSONObject("result").getString("user_id");
+
+                        Singleton.getInstance().user_id = jo.getJSONObject("result").getString("user_id");
+                        Singleton.getInstance().user_indetify = jo.getJSONObject("result").getString("user_identify");
+                        Singleton.getInstance().user_Name = jo.getJSONObject("result").getString("user_Name");
+                        Singleton.getInstance().user_img = jo.getJSONObject("result").getString("user_img");
+                        Singleton.getInstance().user_nickname = jo.getJSONObject("result").getString("user_nickname");
+                        Singleton.getInstance().isLogin = true;
+
                         editSp();
                         finish();
                     }
