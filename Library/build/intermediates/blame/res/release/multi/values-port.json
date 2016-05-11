@@ -1,29 +1,5 @@
 [
     {
-        "outputFile": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\values-port\\values-port.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endColumn": 55,
-                    "endOffset": 106
-                },
-                "from": {
-                    "file": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\values-port\\values.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 291,
-                        "endColumn": 55,
-                        "endOffset": 342
-                    }
-                }
-            }
-        ]
-    },
-    {
         "outputFile": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/build/intermediates/res/merged/release/values-port/values-port.xml",
         "map": [
             {
@@ -36,6 +12,30 @@
                 },
                 "from": {
                     "file": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/values-port/values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 291,
+                        "endColumn": 55,
+                        "endOffset": 342
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\values-port\\values-port.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 55,
+                    "endOffset": 106
+                },
+                "from": {
+                    "file": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\values-port\\values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
