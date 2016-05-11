@@ -51,7 +51,7 @@ public class HotolList_Activity extends AppCompatActivity{
     private JSONObject jsonObject = new JSONObject();
     private List<HotelModel> dataSource;
     private int selcetposition;
-
+    private int curposition;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,15 +71,15 @@ public class HotolList_Activity extends AppCompatActivity{
         String url = String.format("%s%s", Singleton.getInstance().httpServer, method);
         if(method == "/HotolList.php"){
             try {
-                jsonObject.put("user_id", "1001");
+                jsonObject.put("user_id", Singleton.getInstance().user_id);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }else {
 
-            HotelModel model = dataSource.get(selcetposition);
+            HotelModel model = dataSource.get(curposition);
             try {
-                jsonObject.put("user_id", "1001");
+                jsonObject.put("user_id", Singleton.getInstance().user_id);
                 jsonObject.put("h_indentify", model.h_indentify);
 
             } catch (JSONException e) {
@@ -136,6 +136,7 @@ public class HotolList_Activity extends AppCompatActivity{
 //                mAdapter.setCount(dataSource.size());
                     mAdapter.notifyItemChanged(selcetposition);
                     mAdapter.notifyItemChanged(position);
+                    curposition = position;
                     startHttpRequest("/ActiveHotel.php");
                 }
             }
@@ -292,6 +293,10 @@ public class HotolList_Activity extends AppCompatActivity{
                             mPtrrv.setOnRefreshComplete();
                             mPtrrv.onFinishLoading(true, false);
                         }else{
+
+                            HotelModel hotel  = dataSource.get(curposition);
+                            Singleton.getInstance().h_indentify = hotel.h_indentify;
+                            Singleton.getInstance().h_Name = hotel.h_Name;
 
                         }
                     }

@@ -141,6 +141,9 @@ public class Login_Register_Activity extends AppCompatActivity {
                         Singleton.getInstance().user_Name = jo.getJSONObject("result").getString("user_Name");
                         Singleton.getInstance().user_img = jo.getJSONObject("result").getString("user_img");
                         Singleton.getInstance().user_nickname = jo.getJSONObject("result").getString("user_nickname");
+                        Singleton.getInstance().h_Name = jo.getJSONObject("result").getString("h_Name");
+                        Singleton.getInstance().h_indentify = jo.getJSONObject("result").getString("h_indentify");
+
                         Singleton.getInstance().isLogin = true;
 
                         editSp();

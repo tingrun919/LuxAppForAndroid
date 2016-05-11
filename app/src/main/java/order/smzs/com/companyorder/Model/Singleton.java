@@ -21,6 +21,11 @@ public class Singleton implements Serializable {
         public boolean isLogin;
         // 服务器地址
         public String httpServer;
+        // 活跃餐厅名称
+        public String h_Name;
+        // 活跃餐厅 ID
+        public String h_indentify;
+
 
            private static class SingletonHolder {
                /**
