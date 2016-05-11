@@ -21,6 +21,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import order.smzs.com.companyorder.model.Singleton;
 import order.smzs.com.companyorder.util.Constants;
 
 public class MainActivity extends AppCompatActivity
@@ -114,6 +115,8 @@ public class MainActivity extends AppCompatActivity
             edit.putInt("ISLOGIN",0);
             edit.commit();
             Constants.ISLOGIN = false;
+            // 清空单例数据
+            Singleton.cleanUserMessage();
             onResume();
             Toast.makeText(MainActivity.this,"退出登录",Toast.LENGTH_SHORT).show();
             return true;
@@ -139,11 +142,13 @@ public class MainActivity extends AppCompatActivity
             //订餐信息修改
         } else if (id == R.id.nav_manage) {
             //餐厅列表
-
-
-            MainActivity.this.
-                    startActivity(
-                            new Intent(MainActivity.this, order.smzs.com.companyorder.pull.PtrrvListViewMode.class));
+            if (Singleton.getInstance().isLogin){
+                MainActivity.this.
+                        startActivity(
+                                new Intent(MainActivity.this, HotolList_Activity.class));
+            }else {
+                Login_Register_Activity.startAct(MainActivity.this);
+            }
         } else if (id == R.id.nav_share) {
             //修改昵称
         } else if (id == R.id.nav_send) {
