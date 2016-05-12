@@ -74,7 +74,9 @@ public class ThreadPoolUtils {
 	}
 	
 	public static void execute(Runnable r){
-		threadPool.execute(r);
+		if (r != null){
+			threadPool.execute(r);
+		}
 	} 
 	
 }

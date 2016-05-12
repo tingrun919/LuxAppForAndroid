@@ -21,8 +21,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import order.smzs.com.companyorder.model.AppUtils;
 import order.smzs.com.companyorder.model.Singleton;
 import order.smzs.com.companyorder.util.Constants;
+import order.smzs.com.companyorder.util.HttpUtils_new;
+import order.smzs.com.companyorder.util.ThreadPoolUtils;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -31,6 +37,7 @@ public class MainActivity extends AppCompatActivity
     private LinearLayout linearLayout;
     private RelativeLayout linearLayout1;
     private ImageView mImageView;
+    private JSONObject jsonObject = new JSONObject();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +46,7 @@ public class MainActivity extends AppCompatActivity
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -154,6 +162,26 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_send) {
             //修改密码
             UpdatePassWord.startAct(MainActivity.this);
+        }else if (id == R.id.nav_update) {
+            //检查更新
+            try {
+                jsonObject.put("a_Version", AppUtils.getVersionName(MainActivity.this));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            HttpUtils_new httpUtils_new = new HttpUtils_new().initWith(
+                    String.format("%s%s", Singleton.getInstance().httpServer, "/CheckVersion.php"),
+                    jsonObject,
+                    new HttpUtils_new.CallbackListener() {
+                        @Override
+                        public void callBack(String result) {
+
+                        }
+                    },
+                    MainActivity.this
+            );
+            ThreadPoolUtils.execute(httpUtils_new);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -173,4 +201,8 @@ public class MainActivity extends AppCompatActivity
         }
         super.onResume();
     }
+
+
+
+
 }

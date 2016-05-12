@@ -1,8 +1,10 @@
 package order.smzs.com.companyorder.util;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.widget.Toast;
 
 import org.json.JSONObject;
 
@@ -16,6 +18,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
+import order.smzs.com.companyorder.model.NetUtils;
+
 public class HttpUtils_new implements Runnable{
 
 	public static final int DID_START = 0;
@@ -26,6 +30,11 @@ public class HttpUtils_new implements Runnable{
 	private CallbackListener listener;
 	private JSONObject jsonObject;
 	private String res;
+	private Context context;
+
+	public HttpUtils_new() {
+
+	}
 
 	@Override
 	public void run() {
@@ -103,6 +112,23 @@ public class HttpUtils_new implements Runnable{
 		this.jsonObject = jsonObject;
 		this.listener = listener;
 	}
+
+	public HttpUtils_new initWith(String url, JSONObject jsonObject, CallbackListener listener, Context context){
+
+		if (NetUtils.isConnected(context)){
+			this.url = url;
+			this.jsonObject = jsonObject;
+			this.listener = listener;
+			this.context = context;
+			return this;
+		}else {
+			Toast.makeText(context,"无网络！",Toast.LENGTH_SHORT).show();
+			return null;
+		}
+	}
+
+
+
 
 	public interface CallbackListener {
 		public void callBack(String result);
