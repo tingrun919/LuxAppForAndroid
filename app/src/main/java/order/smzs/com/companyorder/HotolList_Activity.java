@@ -23,7 +23,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import order.smzs.com.companyorder.image.SmartImageView;
@@ -79,8 +81,12 @@ public class HotolList_Activity extends AppCompatActivity{
 
             HotelModel model = dataSource.get(curposition);
             try {
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                Date curDate = new Date(System.currentTimeMillis());//获取当前时间
+                String date = formatter.format(curDate);
                 jsonObject.put("user_id", Singleton.getInstance().user_id);
                 jsonObject.put("h_indentify", model.h_indentify);
+                jsonObject.put("date", date);
 
             } catch (JSONException e) {
                 e.printStackTrace();
