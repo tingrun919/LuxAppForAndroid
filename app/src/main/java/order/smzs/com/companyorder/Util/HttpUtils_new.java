@@ -6,6 +6,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.widget.Toast;
 
+import com.mingle.widget.ShapeLoadingDialog;
+
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
@@ -29,6 +31,7 @@ public class HttpUtils_new implements Runnable{
 	private JSONObject jsonObject;
 	private String res;
 	private Context context;
+	private ShapeLoadingDialog shapeLoadingDialog;
 
 	public HttpUtils_new() {
 
@@ -40,27 +43,27 @@ public class HttpUtils_new implements Runnable{
 		byte[] data = JsonToString(jsonObject).toString().getBytes();// 获得请求体
 		// String urlPath = "http://192.168.19.47/FoodList.php";
 		try {
-				URL strUrlPath = new URL(url);
-				HttpURLConnection httpURLConnection = (HttpURLConnection) strUrlPath.openConnection();
-				httpURLConnection.setConnectTimeout(3000); // 设置连接超时时间
-				httpURLConnection.setDoInput(true); // 打开输入流，以便从服务器获取数据
-				httpURLConnection.setDoOutput(true); // 打开输出流，以便向服务器提交数据
-				httpURLConnection.setRequestMethod("POST"); // 设置以Post方式提交数据
-				httpURLConnection.setUseCaches(false); // 使用Post方式不能使用缓存
-				// 设置请求体的类型是文本类型
-				httpURLConnection.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
-				// 设置请求体的长度
-				httpURLConnection.setRequestProperty("Content-Length",String.valueOf(data.length));
-				// 获得输出流，向服务器写入数据
-				OutputStream outputStream = httpURLConnection.getOutputStream();
-				outputStream.write(data);
+			URL strUrlPath = new URL(url);
+			HttpURLConnection httpURLConnection = (HttpURLConnection) strUrlPath.openConnection();
+			httpURLConnection.setConnectTimeout(3000); // 设置连接超时时间
+			httpURLConnection.setDoInput(true); // 打开输入流，以便从服务器获取数据
+			httpURLConnection.setDoOutput(true); // 打开输出流，以便向服务器提交数据
+			httpURLConnection.setRequestMethod("POST"); // 设置以Post方式提交数据
+			httpURLConnection.setUseCaches(false); // 使用Post方式不能使用缓存
+			// 设置请求体的类型是文本类型
+			httpURLConnection.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
+			// 设置请求体的长度
+			httpURLConnection.setRequestProperty("Content-Length",String.valueOf(data.length));
+			// 获得输出流，向服务器写入数据
+			OutputStream outputStream = httpURLConnection.getOutputStream();
+			outputStream.write(data);
 
-				int response = httpURLConnection.getResponseCode(); // 获得服务器的响应码
-				if (response == HttpURLConnection.HTTP_OK) {
-					InputStream inptStream = httpURLConnection.getInputStream();
-					res = dealResponseResult(inptStream); // 处理服务器的响应结果
-					this.sendMessage(res);
-				}
+			int response = httpURLConnection.getResponseCode(); // 获得服务器的响应码
+			if (response == HttpURLConnection.HTTP_OK) {
+				InputStream inptStream = httpURLConnection.getInputStream();
+				res = dealResponseResult(inptStream); // 处理服务器的响应结果
+				this.sendMessage(res);
+			}
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -72,7 +75,7 @@ public class HttpUtils_new implements Runnable{
 		}
 	}
 
-	private static final Handler handler = new Handler(){
+	private final Handler handler = new Handler(){
 		@Override
 		public void handleMessage(Message msg) {
 			super.handleMessage(msg);
@@ -89,6 +92,7 @@ public class HttpUtils_new implements Runnable{
 						if (data != null) {
 							Bundle bundle = (Bundle) data;
 							String result = bundle.getString("res");
+							shapeLoadingDialog.dismiss();
 							listener.callBack(result);
 						}
 					}
@@ -118,6 +122,13 @@ public class HttpUtils_new implements Runnable{
 			this.jsonObject = jsonObject;
 			this.listener = listener;
 			this.context = context;
+
+			shapeLoadingDialog=new ShapeLoadingDialog(this.context);
+			shapeLoadingDialog.setLoadingText("玩命加载中...");
+			shapeLoadingDialog.setCanceledOnTouchOutside(false);
+			shapeLoadingDialog.show();
+
+
 			return this;
 		}else {
 			Toast.makeText(context,"无网络！",Toast.LENGTH_SHORT).show();
