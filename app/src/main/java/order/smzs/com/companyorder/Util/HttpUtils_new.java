@@ -131,7 +131,7 @@ public class HttpUtils_new implements Runnable{
 
 			return this;
 		}else {
-			Toast.makeText(context,"无网络！",Toast.LENGTH_SHORT).show();
+			Toast.makeText(context,"请检查网络连接！",Toast.LENGTH_SHORT).show();
 			return null;
 		}
 	}
