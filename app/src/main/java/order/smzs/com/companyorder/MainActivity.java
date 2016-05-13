@@ -15,7 +15,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -24,6 +23,7 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import order.smzs.com.companyorder.image.SmartImageView;
 import order.smzs.com.companyorder.model.AppUtils;
 import order.smzs.com.companyorder.model.Singleton;
 import order.smzs.com.companyorder.util.Constants;
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity
     private TextView mTextView;
     private LinearLayout linearLayout;
     private RelativeLayout linearLayout1;
-    private ImageView mImageView;
+    private SmartImageView mImageView;
     private JSONObject jsonObject = new JSONObject();
 
     @Override
@@ -63,11 +63,12 @@ public class MainActivity extends AppCompatActivity
 
         View ss = navigationView.getHeaderView(0);
         linearLayout = (LinearLayout) ss.findViewById(R.id.login_sc);
-        mImageView = (ImageView) ss.findViewById(R.id.imageView);
+        mImageView = (SmartImageView) ss.findViewById(R.id.main_tx);
+        mImageView.setImageUrl(Singleton.getInstance().user_img);
         mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Login_Register_Activity.startAct(MainActivity.this);
+                Myinformation_Activity.startAct(MainActivity.this);
             }
         });
 
@@ -157,12 +158,14 @@ public class MainActivity extends AppCompatActivity
             }else {
                 Login_Register_Activity.startAct(MainActivity.this);
             }
-        } else if (id == R.id.nav_share) {
-            //修改昵称
-        } else if (id == R.id.nav_send) {
+        }
+//        else if (id == R.id.nav_share) {
+//            //修改昵称
+//        }
+        else if (id == R.id.nav_send) {
             //修改密码
             UpdatePassWord.startAct(MainActivity.this);
-        }else if (id == R.id.nav_update) {
+        }else if (id == R.id.nav_share) {
             //检查更新
             try {
                 jsonObject.put("a_Version", AppUtils.getVersionName(MainActivity.this));
@@ -194,6 +197,7 @@ public class MainActivity extends AppCompatActivity
         if(Constants.ISLOGIN){
             linearLayout.setVisibility(View.VISIBLE);
             linearLayout1.setVisibility(View.GONE);
+            mImageView.setImageUrl(Singleton.getInstance().user_img);
         }
         if(!Constants.ISLOGIN){
             linearLayout.setVisibility(View.GONE);

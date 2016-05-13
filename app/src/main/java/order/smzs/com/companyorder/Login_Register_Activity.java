@@ -36,6 +36,10 @@ public class Login_Register_Activity extends AppCompatActivity {
     private String url = "http://192.168.19.47/UserLogin.php";
     private JSONObject jsonObject = new JSONObject();
 
+    /***
+     * 跳转类，传参方法
+     * @param context
+     */
     public static void startAct(Activity context) {
         Intent intent = new Intent(context, Login_Register_Activity.class);
         context.startActivity(intent);
@@ -45,11 +49,12 @@ public class Login_Register_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_register_main);
-
+        //加载ActionBar的返回按钮
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         sp = this.getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+
         userName = (EditText) findViewById(R.id.et_username);
         passWord = (EditText) findViewById(R.id.et_password);
         isLogin = (CheckBox) findViewById(R.id.cb_mima);
@@ -64,12 +69,11 @@ public class Login_Register_Activity extends AppCompatActivity {
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Register_Activity.startAct(Login_Register_Activity.this);
                 enterSecond();
             }
         });
 
-
+        //判断是否记住密码
         isLogin.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -89,6 +93,11 @@ public class Login_Register_Activity extends AppCompatActivity {
         }
     }
 
+    /**
+     * 退出finish掉当前Activity
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // TODO Auto-generated method stub
@@ -118,6 +127,9 @@ public class Login_Register_Activity extends AppCompatActivity {
 
     }
 
+    /**
+     * 登陆的回调函数
+     */
     class BackListener implements HttpUtils_new.CallbackListener {
 
         @Override
@@ -158,6 +170,9 @@ public class Login_Register_Activity extends AppCompatActivity {
         }
     }
 
+    /***
+     * 登陆成功将用户名密码保存到本地
+     */
     public void editSp() {
         //0未登录，1登陆
         SharedPreferences.Editor editor = sp.edit();
