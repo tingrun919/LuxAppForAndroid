@@ -38,36 +38,34 @@
     <TextView
         android:layout_width="200dp"
         android:layout_height="30dp"
-        android:id="@+id/textView"
+        android:id="@+id/header_tv1"
         android:layout_alignTop="@+id/main_tx"
         android:layout_toEndOf="@+id/main_tx"
         android:layout_marginStart="27dp"
-        android:text="降谷萌路酱"
         android:gravity="left|center"
         android:textColor="@color/register_bg_Color"
         android:textSize="18dp"
-        android:layout_above="@+id/textView2"/>
+        android:layout_above="@+id/header_tv2"/>
 
 
     <TextView
         android:layout_width="100dp"
         android:layout_height="30dp"
-        android:layout_alignStart="@+id/textView"
-        android:id="@+id/textView2"
-        android:text="超意兴"
+        android:layout_alignStart="@+id/header_tv1"
+        android:id="@+id/header_tv2"
         android:textSize="16dp"
         android:gravity="left|center"
         android:layout_above="@+id/header_view"
-        android:layout_alignEnd="@+id/textView"/>
+        android:layout_alignEnd="@+id/header_tv1"/>
 
     <TextView
         android:layout_width="200dp"
         android:layout_height="30dp"
-        android:id="@+id/textView4"
+        android:id="@+id/header_tv3"
         android:layout_below="@+id/header_view"
-        android:layout_alignEnd="@+id/textView"
-        android:text="17天"
+        android:layout_alignEnd="@+id/header_tv1"
         android:gravity="center"
+        android:text="17天"
         android:textSize="20dp"
         android:textColor="@color/register_bg_Color"
         android:layout_alignParentBottom="true"/>
@@ -75,9 +73,9 @@
     <TextView
         android:layout_width="100dp"
         android:layout_height="30dp"
-        android:id="@+id/textView3"
+        android:id="@+id/header_tv4"
         android:gravity="left|center"
-        android:layout_alignTop="@+id/textView4"
+        android:layout_alignTop="@+id/header_tv3"
         android:layout_alignStart="@+id/main_tx"
         android:text="已签到天数"
         android:textSize="20dp"

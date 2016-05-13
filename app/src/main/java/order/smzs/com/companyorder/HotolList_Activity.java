@@ -282,6 +282,7 @@ public class HotolList_Activity extends AppCompatActivity{
                     JSONObject jo = new JSONObject(result);
                     if ("200".equals(jo.getString("retcode"))) {//服务器返回错误
                         Toast.makeText(HotolList_Activity.this, jo.getString("code"), Toast.LENGTH_SHORT).show();
+                        finish();
                     }
                     if ("300".equals(jo.getString("retcode"))) {//参数传递错误
                         Toast.makeText(HotolList_Activity.this, jo.getString("code"), Toast.LENGTH_SHORT).show();

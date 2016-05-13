@@ -11,6 +11,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -33,7 +34,7 @@ import order.smzs.com.companyorder.util.ThreadPoolUtils;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private TextView mTextView;
+    private TextView mTextView,header_tv1,header_tv2,header_tv3,header_tv4;
     private LinearLayout linearLayout;
     private RelativeLayout linearLayout1,linearLayout2;
     private SmartImageView mImageView;
@@ -55,7 +56,6 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
 
 
-
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         View nav_view = navigationView.inflateHeaderView(R.layout.nav_nologin_header_main);
         navigationView.inflateHeaderView(R.layout.nav_header_main);
@@ -64,13 +64,17 @@ public class MainActivity extends AppCompatActivity
         View ss = navigationView.getHeaderView(0);
         linearLayout2 = (RelativeLayout) ss.findViewById(R.id.login_sc);
         mImageView = (SmartImageView) ss.findViewById(R.id.main_tx);
-        mImageView.setImageUrl(Singleton.getInstance().user_img);
+//        mImageView.setImageUrl(Singleton.getInstance().user_img);
         mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Myinformation_Activity.startAct(MainActivity.this);
             }
         });
+        header_tv1 = (TextView) ss.findViewById(R.id.header_tv1);
+        header_tv2 = (TextView) ss.findViewById(R.id.header_tv2);
+        header_tv3 = (TextView) ss.findViewById(R.id.header_tv3);
+
 
         linearLayout1 = (RelativeLayout) nav_view.findViewById(R.id.login_ng);
         mTextView = (TextView) nav_view.findViewById(R.id.tv_login);
@@ -87,7 +91,7 @@ public class MainActivity extends AppCompatActivity
         boolean firstTime = preferences.getBoolean("first_time", true);
         Log.i("firstTime", firstTime + "");
         if (firstTime) {
-            // 写入sharedpreferences
+            // 写入SharedPreferences
             SharedPreferences.Editor editor = preferences.edit();
             editor.putBoolean("first_time", false);
             editor.commit();
@@ -155,11 +159,10 @@ public class MainActivity extends AppCompatActivity
             }else {
                 Login_Register_Activity.startAct(MainActivity.this);
             }
-        }
-        else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_send) {
             //修改密码
             UpdatePassWord.startAct(MainActivity.this);
-        }else if (id == R.id.nav_update) {
+        } else if (id == R.id.nav_update) {
             //检查更新
             try {
                 jsonObject.put("a_Version", AppUtils.getVersionName(MainActivity.this));
@@ -167,15 +170,8 @@ public class MainActivity extends AppCompatActivity
                 e.printStackTrace();
             }
 
-            HttpUtils_new httpUtils_new = new HttpUtils_new().initWith(
-                    String.format("%s%s", Singleton.getInstance().httpServer, "/CheckVersion.php"),
-                    jsonObject,
-                    new HttpUtils_new.CallbackListener() {
-                        @Override
-                        public void callBack(String result) {
-
-                        }
-                    },
+            HttpUtils_new httpUtils_new = new HttpUtils_new().initWith(String.format("%s%s", Singleton.getInstance().httpServer, "/CheckVersion.php"),
+                    jsonObject,new BackListener(),
                     MainActivity.this
             );
             ThreadPoolUtils.execute(httpUtils_new);
@@ -192,6 +188,8 @@ public class MainActivity extends AppCompatActivity
             linearLayout2.setVisibility(View.VISIBLE);
             linearLayout1.setVisibility(View.GONE);
             mImageView.setImageUrl(Singleton.getInstance().user_img);
+            header_tv1.setText(Singleton.getInstance().user_nickname);
+            header_tv2.setText(Singleton.getInstance().h_Name);
         }
         if(!Constants.ISLOGIN){
             linearLayout2.setVisibility(View.GONE);
@@ -201,6 +199,29 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+    class BackListener implements HttpUtils_new.CallbackListener {
+        @Override
+        public void callBack(String result) {
+            if (!TextUtils.isEmpty(result)) {
+                try {
+                    JSONObject jo = new JSONObject(result);
+                    if ("200".equals(jo.getString("retcode"))) {//当前已经是最新版本
+                        Toast.makeText(MainActivity.this, jo.getString("messageCode"), Toast.LENGTH_SHORT).show();
+                    }
+                    if ("300".equals(jo.getString("retcode"))) {//参数传递错误
+                        Toast.makeText(MainActivity.this, jo.getString("messageCode"), Toast.LENGTH_SHORT).show();
+                    }
+                    if ("100".equals(jo.getString("retcode"))) {//发现新版本
+                        Toast.makeText(MainActivity.this, jo.getString("messageCode"), Toast.LENGTH_SHORT).show();
 
 
+                        }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                Toast.makeText(MainActivity.this, "请检查网络连接！", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 }
