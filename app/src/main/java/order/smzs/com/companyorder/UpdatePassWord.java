@@ -15,6 +15,7 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import order.smzs.com.companyorder.model.Singleton;
 import order.smzs.com.companyorder.util.Constants;
 import order.smzs.com.companyorder.util.EncrypMD5;
 import order.smzs.com.companyorder.util.HttpUtils_new;
@@ -25,8 +26,8 @@ import order.smzs.com.companyorder.util.ThreadPoolUtils;
  */
 public class UpdatePassWord extends AppCompatActivity{
 
-    private EditText ud_zh,ud_mm,ud_mm2;
-    private String zh,mm,mm2,url="http://192.168.19.47/UpdatePassWord.php";
+    private EditText ud_mm,ud_mm2;
+    private String mm,mm2;
     private Button btn_udpw;
     private JSONObject jsonObject = new JSONObject();
 
@@ -43,7 +44,6 @@ public class UpdatePassWord extends AppCompatActivity{
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle("修改密码");
 
-        ud_zh = (EditText) findViewById(R.id.ud_zh);
         ud_mm = (EditText) findViewById(R.id.ud_mm);
         ud_mm2 = (EditText) findViewById(R.id.ud_mm2);
 
@@ -57,7 +57,6 @@ public class UpdatePassWord extends AppCompatActivity{
     }
 
     public void startUdPw(){
-        zh = ud_zh.getText().toString();
         mm = ud_mm.getText().toString();
         mm2 = ud_mm2.getText().toString();
 
@@ -73,7 +72,7 @@ public class UpdatePassWord extends AppCompatActivity{
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        HttpUtils_new httpUtils_new = new HttpUtils_new(url,jsonObject,new BackListener());
+        HttpUtils_new httpUtils_new = new HttpUtils_new().initWith(String.format("%s%s", Singleton.getInstance().httpServer, "/UpdatePassWord.php"),jsonObject,new BackListener(),UpdatePassWord.this);
         ThreadPoolUtils.execute(httpUtils_new);
     }
 
@@ -90,7 +89,7 @@ public class UpdatePassWord extends AppCompatActivity{
                     if("300".equals(jo.getString("retcode"))){//参数传递错误
                         Toast.makeText(UpdatePassWord.this, jo.getString("messageCode"), Toast.LENGTH_SHORT).show();
                     }
-                    if("100".equals(jo.getString("retcode"))){//注册成功
+                    if("100".equals(jo.getString("retcode"))){//密码修改成功
                         Toast.makeText(UpdatePassWord.this, jo.getString("messageCode"), Toast.LENGTH_SHORT).show();
                         finish();
                     }

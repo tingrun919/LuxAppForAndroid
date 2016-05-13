@@ -18,8 +18,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
-import order.smzs.com.companyorder.model.NetUtils;
-
 public class HttpUtils_new implements Runnable{
 
 	public static final int DID_START = 0;
@@ -115,7 +113,7 @@ public class HttpUtils_new implements Runnable{
 
 	public HttpUtils_new initWith(String url, JSONObject jsonObject, CallbackListener listener, Context context){
 
-		if (NetUtils.isConnected(context)){
+		if (order.smzs.com.companyorder.model.NetUtils.isConnected(context)){
 			this.url = url;
 			this.jsonObject = jsonObject;
 			this.listener = listener;
@@ -131,7 +129,7 @@ public class HttpUtils_new implements Runnable{
 
 
 	public interface CallbackListener {
-		public void callBack(String result);
+		void callBack(String result);
 	}
 
 	public static String JsonToString(JSONObject param){

@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity
 
     private TextView mTextView;
     private LinearLayout linearLayout;
-    private RelativeLayout linearLayout1;
+    private RelativeLayout linearLayout1,linearLayout2;
     private SmartImageView mImageView;
     private JSONObject jsonObject = new JSONObject();
 
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity
 
 
         View ss = navigationView.getHeaderView(0);
-        linearLayout = (LinearLayout) ss.findViewById(R.id.login_sc);
+        linearLayout2 = (RelativeLayout) ss.findViewById(R.id.login_sc);
         mImageView = (SmartImageView) ss.findViewById(R.id.main_tx);
         mImageView.setImageUrl(Singleton.getInstance().user_img);
         mImageView.setOnClickListener(new View.OnClickListener() {
@@ -142,9 +142,6 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             //我要订餐
-            MainActivity.this.
-                    startActivity(
-                            new Intent(MainActivity.this, order.smzs.com.companyorder.pull.PtrrvListViewMode.class));
         } else if (id == R.id.nav_gallery) {
             //订餐信息查询
         } else if (id == R.id.nav_slideshow) {
@@ -159,13 +156,10 @@ public class MainActivity extends AppCompatActivity
                 Login_Register_Activity.startAct(MainActivity.this);
             }
         }
-//        else if (id == R.id.nav_share) {
-//            //修改昵称
-//        }
         else if (id == R.id.nav_send) {
             //修改密码
             UpdatePassWord.startAct(MainActivity.this);
-        }else if (id == R.id.nav_share) {
+        }else if (id == R.id.nav_update) {
             //检查更新
             try {
                 jsonObject.put("a_Version", AppUtils.getVersionName(MainActivity.this));
@@ -195,12 +189,12 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onResume() {
         if(Constants.ISLOGIN){
-            linearLayout.setVisibility(View.VISIBLE);
+            linearLayout2.setVisibility(View.VISIBLE);
             linearLayout1.setVisibility(View.GONE);
             mImageView.setImageUrl(Singleton.getInstance().user_img);
         }
         if(!Constants.ISLOGIN){
-            linearLayout.setVisibility(View.GONE);
+            linearLayout2.setVisibility(View.GONE);
             linearLayout1.setVisibility(View.VISIBLE);
         }
         super.onResume();

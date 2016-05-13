@@ -19,6 +19,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import order.smzs.com.companyorder.image.SmartImageView;
+import order.smzs.com.companyorder.model.Singleton;
+import order.smzs.com.companyorder.util.Constants;
 import order.smzs.com.companyorder.util.EncrypMD5;
 import order.smzs.com.companyorder.util.HttpUtils_new;
 import order.smzs.com.companyorder.util.ThreadPoolUtils;
@@ -31,9 +33,8 @@ public class Register_Activity extends AppCompatActivity{
 
     private EditText et_zh,et_nc,et_mm,et_mm2,et_yzm;
     private Button register_btn;
-    private String zh,nc,mm,mm2,yzm,url="http://192.168.19.47/RegisterUser.php",url2="http://192.168.19.47/IsExistNickName.php";
+    private String zh,nc,mm,mm2,yzm;
     private SmartImageView imageView;
-    private String imageUrl = "http://192.168.19.47/PhoneMessage.php?v_uuid=";
     private JSONObject jsonObject = new JSONObject();
     private int resNum;
 
@@ -59,7 +60,15 @@ public class Register_Activity extends AppCompatActivity{
 
         resNum = getRandomNum();
         imageView = (SmartImageView) this.findViewById(R.id.my_image);
-        imageView.setImageUrl(imageUrl+resNum);
+        imageView.setImageUrl(Constants.imageUrl+resNum);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                resNum = getRandomNum();
+                imageView.setImageUrl(Constants.imageUrl+resNum);
+            }
+        });
+
 
         register_btn = (Button) findViewById(R.id.btn_register);
         register_btn.setOnClickListener(new View.OnClickListener() {
@@ -108,7 +117,7 @@ public class Register_Activity extends AppCompatActivity{
             e.printStackTrace();
         }
 
-        HttpUtils_new httpUtils_new = new HttpUtils_new(url,jsonObject,new BackListener());
+        HttpUtils_new httpUtils_new = new HttpUtils_new().initWith( String.format("%s%s", Singleton.getInstance().httpServer, "/RegisterUser.php"),jsonObject,new BackListener(),Register_Activity.this);
         ThreadPoolUtils.execute(httpUtils_new);
     }
 
@@ -163,7 +172,7 @@ public class Register_Activity extends AppCompatActivity{
             e.printStackTrace();
         }
 
-        HttpUtils_new httpUtils_new = new HttpUtils_new(url2,jsonObject,new BackListener2());
+        HttpUtils_new httpUtils_new = new HttpUtils_new().initWith( String.format("%s%s", Singleton.getInstance().httpServer, "/IsExistNickName.php"),jsonObject,new BackListener2(),Register_Activity.this);
         ThreadPoolUtils.execute(httpUtils_new);
     }
 

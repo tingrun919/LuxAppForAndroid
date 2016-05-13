@@ -33,7 +33,6 @@ public class Login_Register_Activity extends AppCompatActivity {
     private CheckBox isLogin;
     private String userNameValue, passWordValue, MD5passWord;
     private SharedPreferences sp;
-    private String url = "http://192.168.19.47/UserLogin.php";
     private JSONObject jsonObject = new JSONObject();
 
     /***
@@ -122,7 +121,7 @@ public class Login_Register_Activity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        HttpUtils_new httpUtils_new = new HttpUtils_new(String.format("%s%s",Singleton.getInstance().httpServer,"/UserLogin.php"), jsonObject, new BackListener());
+        HttpUtils_new httpUtils_new = new HttpUtils_new().initWith(String.format("%s%s",Singleton.getInstance().httpServer,"/UserLogin.php"), jsonObject, new BackListener(),Login_Register_Activity.this);
         ThreadPoolUtils.execute(httpUtils_new);
 
     }

@@ -23,12 +23,8 @@
     <item android:title="用户操作">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="修改昵称"/>
-            <item
                 android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/ic_menu_share"
                 android:title="修改密码"/>
             <item
                 android:id="@+id/nav_update"
