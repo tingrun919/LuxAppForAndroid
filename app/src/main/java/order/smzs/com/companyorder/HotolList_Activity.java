@@ -92,7 +92,7 @@ public class HotolList_Activity extends AppCompatActivity{
                 e.printStackTrace();
             }
         }
-        HttpUtils_new httpUtils_new = new HttpUtils_new(url, jsonObject, new BackListener().initWith(method));
+        HttpUtils_new httpUtils_new = new HttpUtils_new().initWith(url, jsonObject, new BackListener().initWith(method),HotolList_Activity.this);
         ThreadPoolUtils.execute(httpUtils_new);
 
     }
