@@ -41,7 +41,6 @@ public class HttpUtils_new implements Runnable{
 	public void run() {
 		handler.sendMessage(Message.obtain(handler, HttpUtils_new.DID_START));
 		byte[] data = JsonToString(jsonObject).toString().getBytes();// 获得请求体
-		// String urlPath = "http://192.168.19.47/FoodList.php";
 		try {
 			URL strUrlPath = new URL(url);
 			HttpURLConnection httpURLConnection = (HttpURLConnection) strUrlPath.openConnection();

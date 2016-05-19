@@ -33,6 +33,8 @@
         <activity android:name=".pull.PtrrvListViewMode"></activity>
         <activity android:name=".pull.PtrrvGridViewMode"></activity>
         <activity android:name=".Myinformation_Activity"></activity>
+
+        <activity android:name=".download.MainActivity3"></activity>
     </application>
 
 </manifest>

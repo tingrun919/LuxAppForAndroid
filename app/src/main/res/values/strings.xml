@@ -17,4 +17,6 @@
     <string name="gridview_mode">GridView Mode</string>
     <string name="listview_mode">ListView Mode</string>
     <string name="demo_loadmore">-loading-</string>
+
+    <string name="downloaded">&#160;%s %%</string>
 </resources>

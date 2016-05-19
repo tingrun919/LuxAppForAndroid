@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -24,9 +25,11 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import order.smzs.com.companyorder.download.MainActivity3;
 import order.smzs.com.companyorder.image.SmartImageView;
 import order.smzs.com.companyorder.model.AppUtils;
 import order.smzs.com.companyorder.model.Singleton;
+import order.smzs.com.companyorder.util.AnimDownloadProgressButton;
 import order.smzs.com.companyorder.util.Constants;
 import order.smzs.com.companyorder.util.HttpUtils_new;
 import order.smzs.com.companyorder.util.ThreadPoolUtils;
@@ -39,6 +42,7 @@ public class MainActivity extends AppCompatActivity
     private RelativeLayout linearLayout1,linearLayout2;
     private SmartImageView mImageView;
     private JSONObject jsonObject = new JSONObject();
+    private AnimDownloadProgressButton mAnimDownloadProgressButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +63,9 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         View nav_view = navigationView.inflateHeaderView(R.layout.nav_nologin_header_main);
         navigationView.inflateHeaderView(R.layout.nav_header_main);
+
+
+        start();
 
 
         View ss = navigationView.getHeaderView(0);
@@ -206,14 +213,15 @@ public class MainActivity extends AppCompatActivity
                 try {
                     JSONObject jo = new JSONObject(result);
                     if ("200".equals(jo.getString("retcode"))) {//当前已经是最新版本
-                        Toast.makeText(MainActivity.this, jo.getString("messageCode"), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, jo.getString("code"), Toast.LENGTH_SHORT).show();
                     }
                     if ("300".equals(jo.getString("retcode"))) {//参数传递错误
-                        Toast.makeText(MainActivity.this, jo.getString("messageCode"), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, jo.getString("code"), Toast.LENGTH_SHORT).show();
                     }
                     if ("100".equals(jo.getString("retcode"))) {//发现新版本
-                        Toast.makeText(MainActivity.this, jo.getString("messageCode"), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, jo.getString("code"), Toast.LENGTH_SHORT).show();
 
+                        MainActivity3.startAct(MainActivity.this);
 
                         }
                 } catch (JSONException e) {
@@ -222,6 +230,34 @@ public class MainActivity extends AppCompatActivity
             } else {
                 Toast.makeText(MainActivity.this, "请检查网络连接！", Toast.LENGTH_SHORT).show();
             }
+        }
+    }
+
+    private void start() {
+        mAnimDownloadProgressButton = (AnimDownloadProgressButton)findViewById(R.id.anim_btn);
+        mAnimDownloadProgressButton.setCurrentText("安装");
+        mAnimDownloadProgressButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showTheButton();
+            }
+        });
+
+    }
+
+    private void showTheButton() {
+        mAnimDownloadProgressButton.setState(AnimDownloadProgressButton.DOWNLOADING);
+        mAnimDownloadProgressButton.setProgressText("下载中", mAnimDownloadProgressButton.getProgress() + 8);
+
+        if (mAnimDownloadProgressButton.getProgress() + 10 > 100) {
+            mAnimDownloadProgressButton.setState(AnimDownloadProgressButton.INSTALLING);
+            mAnimDownloadProgressButton.setCurrentText("安装中");
+            new Handler().postDelayed(new Runnable() {
+                public void run() {
+                    mAnimDownloadProgressButton.setState(AnimDownloadProgressButton.NORMAL);
+                    mAnimDownloadProgressButton.setCurrentText("打开");
+                }
+            }, 2000);   //2秒
         }
     }
 }
