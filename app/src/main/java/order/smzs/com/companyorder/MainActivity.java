@@ -4,8 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -22,14 +22,23 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 import order.smzs.com.companyorder.download.MainActivity3;
 import order.smzs.com.companyorder.image.SmartImageView;
 import order.smzs.com.companyorder.model.AppUtils;
 import order.smzs.com.companyorder.model.Singleton;
-import order.smzs.com.companyorder.util.AnimDownloadProgressButton;
 import order.smzs.com.companyorder.util.Constants;
 import order.smzs.com.companyorder.util.HttpUtils_new;
 import order.smzs.com.companyorder.util.ThreadPoolUtils;
@@ -42,8 +51,7 @@ public class MainActivity extends AppCompatActivity
     private RelativeLayout linearLayout1,linearLayout2;
     private SmartImageView mImageView;
     private JSONObject jsonObject = new JSONObject();
-    private AnimDownloadProgressButton mAnimDownloadProgressButton;
-
+    ArrayList<String> sss = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,10 +71,6 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         View nav_view = navigationView.inflateHeaderView(R.layout.nav_nologin_header_main);
         navigationView.inflateHeaderView(R.layout.nav_header_main);
-
-
-        start();
-
 
         View ss = navigationView.getHeaderView(0);
         linearLayout2 = (RelativeLayout) ss.findViewById(R.id.login_sc);
@@ -152,6 +156,15 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
+            try {
+                jsonObject.put("user_id", Singleton.getInstance().user_id);
+                jsonObject.put("h_indentify",Singleton.getInstance().h_indentify);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            HttpUtils_new httpUtils_new = new HttpUtils_new().initWith(String.format("%s%s", Singleton.getInstance().httpServer, "/QuerySign.php"),jsonObject,new BackListener2(),MainActivity.this);
+            ThreadPoolUtils.execute(httpUtils_new);
+
             //我要订餐
         } else if (id == R.id.nav_gallery) {
             //订餐信息查询
@@ -211,7 +224,7 @@ public class MainActivity extends AppCompatActivity
         public void callBack(String result) {
             if (!TextUtils.isEmpty(result)) {
                 try {
-                    JSONObject jo = new JSONObject(result);
+                    final JSONObject jo = new JSONObject(result);
                     if ("200".equals(jo.getString("retcode"))) {//当前已经是最新版本
                         Toast.makeText(MainActivity.this, jo.getString("code"), Toast.LENGTH_SHORT).show();
                     }
@@ -221,9 +234,30 @@ public class MainActivity extends AppCompatActivity
                     if ("100".equals(jo.getString("retcode"))) {//发现新版本
                         Toast.makeText(MainActivity.this, jo.getString("code"), Toast.LENGTH_SHORT).show();
 
-                        MainActivity3.startAct(MainActivity.this);
+                        String message = jo.getString("result");
+                        final Intent intent = new Intent();
+                        intent.setClass(MainActivity.this, MainActivity3.class);
+                        intent.putExtra("result", message);
 
-                        }
+                        new MaterialDialog.Builder(MainActivity.this)
+                                .iconRes(R.drawable.ic_menu_camera)
+                                .limitIconToDefaultSize() // limits the displayed icon size to 48dp
+                                .title("温馨提示")
+                                .content(jo.getString("code"))
+                                .positiveText("确定")
+                                .negativeText("取消")
+                                .onAny(new MaterialDialog.SingleButtonCallback() {
+                                    @Override
+                                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                        if (which.name() == "POSITIVE"){
+                                            startActivity(intent);
+                                        }
+                                    }
+                                })
+                                .canceledOnTouchOutside(false)
+                                .show();
+
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -232,32 +266,76 @@ public class MainActivity extends AppCompatActivity
             }
         }
     }
+    class BackListener2 implements HttpUtils_new.CallbackListener {
 
-    private void start() {
-        mAnimDownloadProgressButton = (AnimDownloadProgressButton)findViewById(R.id.anim_btn);
-        mAnimDownloadProgressButton.setCurrentText("安装");
-        mAnimDownloadProgressButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showTheButton();
+        @Override
+        public void callBack(String result) {
+            if(!TextUtils.isEmpty(result)){
+                try {
+                    JSONObject jo = new JSONObject(result);
+                    if("200".equals(jo.getString("retcode"))){//服务器返回错误
+                        Toast.makeText(MainActivity.this, jo.getString("code"), Toast.LENGTH_SHORT).show();
+                    }
+                    if("300".equals(jo.getString("retcode"))){//参数传递错误
+                        Toast.makeText(MainActivity.this, jo.getString("code"), Toast.LENGTH_SHORT).show();
+                    }
+                    if("100".equals(jo.getString("retcode"))){//返回签到天数成功
+                        Toast.makeText(MainActivity.this, jo.getString("code"), Toast.LENGTH_SHORT).show();
+
+                        jsonObject = jo.getJSONObject("result");
+
+                        JSONArray js = jsonObject.getJSONArray("s_query");
+
+                        ArrayList<Map<String, Object>> list = (ArrayList<Map<String, Object>>) getlistForJson(js.toString());
+
+                        for(int i = 0; i<list.size();i++){
+                            sss.add(list.get(i).get("s_date").toString());
+                        }
+
+                        MainActivityV3.startAct(MainActivity.this,sss);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
-        });
+        }
+    }
+    public static Map<String, Object> getMapForJson(String jsonStr){
+        JSONObject jsonObject ;
+        try {
+            jsonObject = new JSONObject(jsonStr);
 
+            Iterator<String> keyIter= jsonObject.keys();
+            String key;
+            Object value ;
+            Map<String, Object> valueMap = new HashMap<String, Object>();
+            while (keyIter.hasNext()) {
+                key = keyIter.next();
+                value = jsonObject.get(key);
+                valueMap.put(key, value);
+            }
+            return valueMap;
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+        }
+        return null;
     }
 
-    private void showTheButton() {
-        mAnimDownloadProgressButton.setState(AnimDownloadProgressButton.DOWNLOADING);
-        mAnimDownloadProgressButton.setProgressText("下载中", mAnimDownloadProgressButton.getProgress() + 8);
-
-        if (mAnimDownloadProgressButton.getProgress() + 10 > 100) {
-            mAnimDownloadProgressButton.setState(AnimDownloadProgressButton.INSTALLING);
-            mAnimDownloadProgressButton.setCurrentText("安装中");
-            new Handler().postDelayed(new Runnable() {
-                public void run() {
-                    mAnimDownloadProgressButton.setState(AnimDownloadProgressButton.NORMAL);
-                    mAnimDownloadProgressButton.setCurrentText("打开");
-                }
-            }, 2000);   //2秒
+    public static List<Map<String, Object>> getlistForJson(String jsonStr){
+        List<Map<String, Object>> list = null;
+        try {
+            JSONArray jsonArray = new JSONArray(jsonStr);
+            JSONObject jsonObj ;
+            list = new ArrayList<Map<String, Object>>();
+            for(int i = 0 ; i < jsonArray.length() ; i ++){
+                jsonObj = (JSONObject)jsonArray.get(i);
+                list.add(getMapForJson(jsonObj.toString()));
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
         }
+        return list;
     }
 }

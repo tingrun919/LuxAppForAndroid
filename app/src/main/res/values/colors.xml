@@ -6,4 +6,22 @@
     <color name="loginColor">#FFF</color>
     <color name="register_bg_Color">#E2F2FE</color>
     <color name="btn_login">#2DA7E0</color>
+
+    <color name="calendar_background">#e3eef4</color>
+    <color name="white">#ffffffff</color>
+    <color name="text_6">#FFf3feff</color>
+    <color name="text_7">#FFfff1f2</color>
+    <color name="selection">#b1dce2ff</color>
+    <color name="Text">#603b07</color>
+    <color name="ToDayText">#ffc2a53d</color>
+    <color name="noMonth">#c0c0c0</color>
+
+
+
+
+    <color name="font_white_one">#FFFFFF</color>
+
+    <color name="gray_normal">#666667</color>
+
+    <color name="blue">#0383EE</color>
 </resources>

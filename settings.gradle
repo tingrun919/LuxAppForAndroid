@@ -1,1 +1,1 @@
-include ':app', ':Library', ':shapeloading'
+include ':app', ':Library', ':shapeloading', ':core', ':common'

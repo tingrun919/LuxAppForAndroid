@@ -128,7 +128,7 @@ public class Myinformation_Activity extends AppCompatActivity implements View.On
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        HttpUtils_new httpUtils_new = new HttpUtils_new(String.format("%s%s", Singleton.getInstance().httpServer,"/UpdataUsersImg.php"), jsonObject, new BackListener2());
+        HttpUtils_new httpUtils_new = new HttpUtils_new().initWith(String.format("%s%s", Singleton.getInstance().httpServer,"/UpdataUsersImg.php"), jsonObject, new BackListener2(),Myinformation_Activity.this);
         ThreadPoolUtils.execute(httpUtils_new);
     }
 

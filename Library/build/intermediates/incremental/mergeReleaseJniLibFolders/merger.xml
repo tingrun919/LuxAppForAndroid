@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/src/main/jniLibs"/></dataSet><dataSet config="release"><source path="/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/src/release/jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="E:\CompanyOrder\Library\src\main\jniLibs"/></dataSet><dataSet config="release"><source path="E:\CompanyOrder\Library\src\release\jniLibs"/></dataSet></merger>

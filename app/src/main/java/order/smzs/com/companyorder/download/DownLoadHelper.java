@@ -1,17 +1,24 @@
 package order.smzs.com.companyorder.download;
+
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-/**
- * 建立一个数据库帮助类
- */
-public class DBHelper extends SQLiteOpenHelper {
-    // download.db-->数据库名
-    public DBHelper(Context context) {
-        super(context, "download.db", null, 1);
-    }
 
-    /**
+/**
+ * 利用数据库来记录下载信息
+ * @author acer
+ */
+public class DownLoadHelper extends SQLiteOpenHelper{
+
+	private static final String SQL_NAME = "download.db";
+	private static final int DOWNLOAD_VERSION=1;
+	
+	public DownLoadHelper(Context context) {
+		super(context, SQL_NAME, null, DOWNLOAD_VERSION);
+		// TODO Auto-generated constructor stub
+	}
+	
+	 /**
      * 在download.db数据库下创建一个download_info表存储下载信息
      */
     @Override
@@ -19,7 +26,6 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("create table download_info(_id integer PRIMARY KEY AUTOINCREMENT, thread_id integer, "
                 + "start_pos integer, end_pos integer, compelete_size integer,url char)");
     }
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 

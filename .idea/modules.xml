@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/CompanyOrder.iml" filepath="$PROJECT_DIR$/CompanyOrder.iml" />
       <module fileurl="file://$PROJECT_DIR$/Library/Library.iml" filepath="$PROJECT_DIR$/Library/Library.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
       <module fileurl="file://$PROJECT_DIR$/shapeloading/shapeloading.iml" filepath="$PROJECT_DIR$/shapeloading/shapeloading.iml" />
     </modules>
   </component>

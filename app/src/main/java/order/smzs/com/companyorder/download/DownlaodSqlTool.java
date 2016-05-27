@@ -7,30 +7,21 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Dao {
-    private DBHelper dbHelper;
+/**
+ * 
+ * 数据库操作工具类
+ */
+public class DownlaodSqlTool {
+    private DownLoadHelper dbHelper;
 
-    public Dao(Context context) {
-        dbHelper = new DBHelper(context);
+    public DownlaodSqlTool(Context context) {
+        dbHelper = new DownLoadHelper(context);
     }
 
     /**
-     * 查看数据库中是否有数据
+     * 创建下载的具体信息
      */
-    public boolean isHasInfors(String urlstr) {
-        SQLiteDatabase database = dbHelper.getReadableDatabase();
-        String sql = "select count(*)  from download_info where url=?";
-        Cursor cursor = database.rawQuery(sql, new String[] { urlstr });
-        cursor.moveToFirst();
-        int count = cursor.getInt(0);
-        cursor.close();
-        return count == 0;
-    }
-
-    /**
-     * 36 * 保存 下载的具体信息 37
-     */
-    public void saveInfos(List<DownloadInfo> infos) {
+    public void insertInfos(List<DownloadInfo> infos) {
         SQLiteDatabase database = dbHelper.getWritableDatabase();
         for (DownloadInfo info : infos) {
             String sql = "insert into download_info(thread_id,start_pos, end_pos,compelete_size,url) values (?,?,?,?,?)";
@@ -45,7 +36,7 @@ public class Dao {
      */
     public List<DownloadInfo> getInfos(String urlstr) {
         List<DownloadInfo> list = new ArrayList<DownloadInfo>();
-        SQLiteDatabase database = dbHelper.getReadableDatabase();
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
         String sql = "select thread_id, start_pos, end_pos,compelete_size,url from download_info where url=?";
         Cursor cursor = database.rawQuery(sql, new String[] { urlstr });
         while (cursor.moveToNext()) {
@@ -54,7 +45,6 @@ public class Dao {
                     cursor.getString(4));
             list.add(info);
         }
-        cursor.close();
         return list;
     }
 
@@ -62,12 +52,11 @@ public class Dao {
      * 更新数据库中的下载信息
      */
     public void updataInfos(int threadId, int compeleteSize, String urlstr) {
-        SQLiteDatabase database = dbHelper.getReadableDatabase();
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
         String sql = "update download_info set compelete_size=? where thread_id=? and url=?";
         Object[] bindArgs = { compeleteSize, threadId, urlstr };
         database.execSQL(sql, bindArgs);
     }
-
     /**
      * 关闭数据库
      */
@@ -79,8 +68,7 @@ public class Dao {
      * 下载完成后删除数据库中的数据
      */
     public void delete(String url) {
-        SQLiteDatabase database = dbHelper.getReadableDatabase();
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
         database.delete("download_info", "url=?", new String[] { url });
-        database.close();
     }
 }

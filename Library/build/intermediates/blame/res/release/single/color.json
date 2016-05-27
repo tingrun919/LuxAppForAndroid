@@ -1,90 +1,134 @@
 [
     {
-        "merged": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/build/intermediates/res/merged/release/color/abc_secondary_text_material_light.xml",
-        "source": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/color/abc_secondary_text_material_light.xml"
+        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_secondary_text_material_light.xml",
+        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_secondary_text_material_light.xml"
     },
     {
-        "merged": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_search_url_text.xml",
-        "source": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_search_url_text.xml"
+        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_background_cache_hint_selector_material_light.xml",
+        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_background_cache_hint_selector_material_light.xml"
     },
     {
-        "merged": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/build/intermediates/res/merged/release/color/abc_background_cache_hint_selector_material_dark.xml",
-        "source": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/color/abc_background_cache_hint_selector_material_dark.xml"
+        "merged": "E:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_material_dark.xml",
+        "source": "E:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_primary_text_material_dark.xml"
     },
     {
-        "merged": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_disable_only_material_dark.xml",
-        "source": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
+        "merged": "E:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_disable_only_material_dark.xml",
+        "source": "E:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
     },
     {
-        "merged": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_material_dark.xml",
-        "source": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_primary_text_material_dark.xml"
+        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_disable_only_material_light.xml",
+        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_primary_text_disable_only_material_light.xml"
     },
     {
-        "merged": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\switch_thumb_material_light.xml",
-        "source": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\switch_thumb_material_light.xml"
+        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_disable_only_material_light.xml",
+        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_primary_text_disable_only_material_light.xml"
     },
     {
-        "merged": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/build/intermediates/res/merged/release/color/switch_thumb_material_dark.xml",
-        "source": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/color/switch_thumb_material_dark.xml"
+        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_search_url_text.xml",
+        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_search_url_text.xml"
     },
     {
-        "merged": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_secondary_text_material_dark.xml",
-        "source": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_secondary_text_material_dark.xml"
+        "merged": "E:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\switch_thumb_material_dark.xml",
+        "source": "E:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\switch_thumb_material_dark.xml"
     },
     {
-        "merged": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_disable_only_material_light.xml",
-        "source": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_primary_text_disable_only_material_light.xml"
+        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_material_light.xml",
+        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_primary_text_material_light.xml"
     },
     {
-        "merged": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_material_light.xml",
-        "source": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_primary_text_material_light.xml"
+        "merged": "E:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_secondary_text_material_light.xml",
+        "source": "E:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_secondary_text_material_light.xml"
     },
     {
-        "merged": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/build/intermediates/res/merged/release/color/abc_primary_text_material_dark.xml",
-        "source": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/color/abc_primary_text_material_dark.xml"
+        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_background_cache_hint_selector_material_light.xml",
+        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_background_cache_hint_selector_material_light.xml"
     },
     {
-        "merged": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\switch_thumb_material_dark.xml",
-        "source": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\switch_thumb_material_dark.xml"
+        "merged": "E:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_secondary_text_material_dark.xml",
+        "source": "E:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_secondary_text_material_dark.xml"
     },
     {
-        "merged": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/build/intermediates/res/merged/release/color/abc_search_url_text.xml",
-        "source": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/color/abc_search_url_text.xml"
+        "merged": "E:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_background_cache_hint_selector_material_dark.xml",
+        "source": "E:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_background_cache_hint_selector_material_dark.xml"
     },
     {
-        "merged": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/build/intermediates/res/merged/release/color/switch_thumb_material_light.xml",
-        "source": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/color/switch_thumb_material_light.xml"
+        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_background_cache_hint_selector_material_dark.xml",
+        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_background_cache_hint_selector_material_dark.xml"
     },
     {
-        "merged": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_secondary_text_material_light.xml",
-        "source": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_secondary_text_material_light.xml"
+        "merged": "E:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_disable_only_material_light.xml",
+        "source": "E:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_primary_text_disable_only_material_light.xml"
     },
     {
-        "merged": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_background_cache_hint_selector_material_dark.xml",
-        "source": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_background_cache_hint_selector_material_dark.xml"
+        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_search_url_text.xml",
+        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_search_url_text.xml"
     },
     {
-        "merged": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/build/intermediates/res/merged/release/color/abc_primary_text_disable_only_material_dark.xml",
-        "source": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/color/abc_primary_text_disable_only_material_dark.xml"
+        "merged": "E:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_background_cache_hint_selector_material_light.xml",
+        "source": "E:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_background_cache_hint_selector_material_light.xml"
     },
     {
-        "merged": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/build/intermediates/res/merged/release/color/abc_secondary_text_material_dark.xml",
-        "source": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/color/abc_secondary_text_material_dark.xml"
+        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_secondary_text_material_light.xml",
+        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_secondary_text_material_light.xml"
     },
     {
-        "merged": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/build/intermediates/res/merged/release/color/abc_primary_text_disable_only_material_light.xml",
-        "source": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/color/abc_primary_text_disable_only_material_light.xml"
+        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\switch_thumb_material_dark.xml",
+        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\switch_thumb_material_dark.xml"
     },
     {
-        "merged": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/build/intermediates/res/merged/release/color/abc_primary_text_material_light.xml",
-        "source": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/color/abc_primary_text_material_light.xml"
+        "merged": "E:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\switch_thumb_material_light.xml",
+        "source": "E:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\switch_thumb_material_light.xml"
     },
     {
-        "merged": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/build/intermediates/res/merged/release/color/abc_background_cache_hint_selector_material_light.xml",
-        "source": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/Library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/color/abc_background_cache_hint_selector_material_light.xml"
+        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_material_dark.xml",
+        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_primary_text_material_dark.xml"
     },
     {
-        "merged": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_background_cache_hint_selector_material_light.xml",
-        "source": "/Users/niexinrong/Desktop/imageiphone/CompanyOrder/D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_background_cache_hint_selector_material_light.xml"
+        "merged": "E:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_material_light.xml",
+        "source": "E:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\switch_thumb_material_light.xml",
+        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\switch_thumb_material_light.xml"
+    },
+    {
+        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_disable_only_material_dark.xml",
+        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
+    },
+    {
+        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_secondary_text_material_dark.xml",
+        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_secondary_text_material_dark.xml"
+    },
+    {
+        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_material_light.xml",
+        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_disable_only_material_dark.xml",
+        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
+    },
+    {
+        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\switch_thumb_material_light.xml",
+        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\switch_thumb_material_light.xml"
+    },
+    {
+        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\switch_thumb_material_dark.xml",
+        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\switch_thumb_material_dark.xml"
+    },
+    {
+        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_background_cache_hint_selector_material_dark.xml",
+        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_background_cache_hint_selector_material_dark.xml"
+    },
+    {
+        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_secondary_text_material_dark.xml",
+        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_secondary_text_material_dark.xml"
+    },
+    {
+        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_material_dark.xml",
+        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_primary_text_material_dark.xml"
+    },
+    {
+        "merged": "E:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\release\\color\\abc_search_url_text.xml",
+        "source": "E:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\color\\abc_search_url_text.xml"
     }
 ]
