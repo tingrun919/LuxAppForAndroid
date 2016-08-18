@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -37,8 +38,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
-import order.smzs.com.companyorder.model.Singleton;
 import order.smzs.com.companyorder.image.SmartImageView;
+import order.smzs.com.companyorder.model.Singleton;
 import order.smzs.com.companyorder.util.HttpUtils_new;
 import order.smzs.com.companyorder.util.ThreadPoolUtils;
 
@@ -177,6 +178,7 @@ public class Myinformation_Activity extends AppCompatActivity implements View.On
 
         @Override
         public void run() {
+            Looper.prepare();
             // TODO
             // 在这里进行 http request.网络请求相关操作
             String path = Environment.getExternalStorageDirectory().getPath() + "/TTCS/headerImage/"+ resValue + ".JPEG";
@@ -208,7 +210,7 @@ public class Myinformation_Activity extends AppCompatActivity implements View.On
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        HttpUtils_new httpUtils_new = new HttpUtils_new(String.format("%s%s", Singleton.getInstance().httpServer,"/UpdataUsersImg.php"), jsonObject, new BackListener());
+        HttpUtils_new httpUtils_new = new HttpUtils_new().initWith(String.format("%s%s", Singleton.getInstance().httpServer,"/UpdataUsersImg.php"), jsonObject, new BackListener(),Myinformation_Activity.this);
         ThreadPoolUtils.execute(httpUtils_new);
     }
 

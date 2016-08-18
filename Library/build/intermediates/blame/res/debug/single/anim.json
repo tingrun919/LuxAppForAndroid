@@ -1,71 +1,15 @@
 [
     {
-        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
-        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_fade_out.xml"
-    },
-    {
-        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
-        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_fade_in.xml"
-    },
-    {
         "merged": "E:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
         "source": "E:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_slide_in_bottom.xml"
-    },
-    {
-        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
-        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_slide_out_top.xml"
-    },
-    {
-        "merged": "E:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
-        "source": "E:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_slide_in_top.xml"
-    },
-    {
-        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_exit.xml",
-        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_popup_exit.xml"
-    },
-    {
-        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
-        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
-    },
-    {
-        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_grow_fade_in_from_bottom.xml",
-        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
-    },
-    {
-        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_enter.xml",
-        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_popup_enter.xml"
-    },
-    {
-        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
-        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
-    },
-    {
-        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
-        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_fade_in.xml"
-    },
-    {
-        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
-        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_slide_out_bottom.xml"
-    },
-    {
-        "merged": "E:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_grow_fade_in_from_bottom.xml",
-        "source": "E:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
-    },
-    {
-        "merged": "E:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_exit.xml",
-        "source": "E:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_popup_exit.xml"
     },
     {
         "merged": "E:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
         "source": "E:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_slide_out_top.xml"
     },
     {
-        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
-        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_slide_out_top.xml"
-    },
-    {
-        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
-        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_slide_in_bottom.xml"
+        "merged": "E:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
+        "source": "E:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_slide_in_top.xml"
     },
     {
         "merged": "E:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_enter.xml",
@@ -76,44 +20,20 @@
         "source": "E:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_fade_in.xml"
     },
     {
-        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
-        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_slide_out_bottom.xml"
-    },
-    {
-        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
-        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_slide_in_top.xml"
-    },
-    {
-        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_exit.xml",
-        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_popup_exit.xml"
-    },
-    {
-        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_grow_fade_in_from_bottom.xml",
-        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
-    },
-    {
-        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
-        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_slide_in_bottom.xml"
-    },
-    {
-        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
-        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\D:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_slide_in_top.xml"
-    },
-    {
-        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
-        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_fade_out.xml"
+        "merged": "E:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_grow_fade_in_from_bottom.xml",
+        "source": "E:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
     },
     {
         "merged": "E:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
         "source": "E:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
     },
     {
-        "merged": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_enter.xml",
-        "source": "E:\\Users\\niexinrong\\Desktop\\imageiphone\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_popup_enter.xml"
-    },
-    {
         "merged": "E:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
         "source": "E:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_fade_out.xml"
+    },
+    {
+        "merged": "E:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_exit.xml",
+        "source": "E:\\CompanyOrder\\Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_popup_exit.xml"
     },
     {
         "merged": "E:\\CompanyOrder\\Library\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",

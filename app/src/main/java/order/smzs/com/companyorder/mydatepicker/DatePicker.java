@@ -188,7 +188,7 @@ public class DatePicker extends LinearLayout {
 
         rlTitle.addView(myMonth, lpMyMonth);
 //        rlTitle.addView(myTitle, lpMyTitle);
-        rlTitle.addView(signIn, lpSignIn);
+ //       rlTitle.addView(signIn, lpSignIn);
 
 
         addView(rlTitle, llParams);

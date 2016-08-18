@@ -52,6 +52,8 @@ public class Register_Activity extends AppCompatActivity{
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
+        setTitle("用户注册");
+
         et_zh = (EditText) findViewById(R.id.et_zh);
         et_nc = (EditText) findViewById(R.id.et_nc);
         et_mm = (EditText) findViewById(R.id.et_mm);

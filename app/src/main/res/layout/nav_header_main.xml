@@ -65,7 +65,6 @@
         android:layout_below="@+id/header_view"
         android:layout_alignEnd="@+id/header_tv1"
         android:gravity="center"
-        android:text="17天"
         android:textSize="20dp"
         android:textColor="@color/register_bg_Color"
         android:layout_alignParentBottom="true"/>

@@ -11,17 +11,16 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.util.Calendar;
 import java.util.List;
-import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -37,17 +36,20 @@ public class MainActivityV3 extends AppCompatActivity implements DatePicker.OnCl
 
     @Bind(R.id.my_datepicker)
     DatePicker myDatepicker;
-    private JSONObject jsonObject = new JSONObject();
-
-
+    @Bind(R.id.btn_original_demo)
+    Button mbtn_demo;
     private Context mContext;
 
-    private DPCManager dpcManager;
-    ArrayList<String> sss = new ArrayList<String>();
+    private JSONObject jsonObject = new JSONObject();
 
-    public static void startAct(Activity context,ArrayList<String> list){
+    private DPCManager dpcManager;
+    ArrayList<String> ssss = new ArrayList<String>();
+    private String isQD,res,month,year;
+
+    public static void startAct(Activity context,ArrayList<String> list,String isQd){
         Intent intent = new Intent(context,MainActivityV3.class);
-        intent.putStringArrayListExtra("sss",list);
+        intent.putStringArrayListExtra("ssss",list);
+        intent.putExtra("isQd",isQd);
         context.startActivity(intent);
     }
 
@@ -60,20 +62,36 @@ public class MainActivityV3 extends AppCompatActivity implements DatePicker.OnCl
         //加载ActionBar的返回按钮
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-        sss = getIntent().getStringArrayListExtra("sss");
-        init(sss);
+        ssss = getIntent().getStringArrayListExtra("ssss");
+        isQD = getIntent().getStringExtra("isQd");
+        init(ssss);
+
+        setTitle("签到天数");
+
+        if("false".equals(isQD)){
+            mbtn_demo.setText(R.string.btn_yqd);
+        }else{
+            mbtn_demo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startQd();
+                }
+            });
+        }
+
+
     }
 
-    private void initData() {
+    private void startQd() {
         try {
             jsonObject.put("user_id", Singleton.getInstance().user_id);
-            jsonObject.put("h_indentify",Singleton.getInstance().h_indentify);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        HttpUtils_new httpUtils_new = new HttpUtils_new().initWith(String.format("%s%s", Singleton.getInstance().httpServer, "/QuerySign.php"),jsonObject,new BackListener(),MainActivityV3.this);
+        HttpUtils_new httpUtils_new = new HttpUtils_new().initWith(String.format("%s%s", Singleton.getInstance().httpServer,"/UserSigns.php"), jsonObject, new BackListener(),MainActivityV3.this);
         ThreadPoolUtils.execute(httpUtils_new);
     }
+
 
     @Override
     protected void onResume() {
@@ -81,7 +99,7 @@ public class MainActivityV3 extends AppCompatActivity implements DatePicker.OnCl
         //init();
     }
 
-    private void init(ArrayList<String> sss) {
+    private void init(ArrayList<String> ssss) {
         dpcManager = DPCManager.getInstance();
         dpcManager.clearnDATE_CACHE(); //清除cache
 
@@ -93,20 +111,33 @@ public class MainActivityV3 extends AppCompatActivity implements DatePicker.OnCl
 //        tmp.add("2016-05-10");
 //        tmp.add("2016-05-11");
 //        tmp.add("2016-05-12");
-        dpcManager.setDecorBG(sss); //预先设置日期背景 一定要在在开始设置
+        dpcManager.setDecorBG(ssss); //预先设置日期背景 一定要在在开始设置
 
-        myDatepicker.setDate(2016, 5); //设置日期
+        Calendar calendar = Calendar.getInstance();
+        int year_s = calendar.get(Calendar.YEAR);
+        int months = calendar.get(Calendar.MONTH);
+
+        if(ssss.size()!=0){
+             res = ssss.get(0);
+             year = res.substring(0,4);
+             month = res.substring(6,7);
+            myDatepicker.setDate(Integer.valueOf(year), Integer.valueOf(month)); //设置日期
+        }else{
+            myDatepicker.setDate(Integer.valueOf(year_s), Integer.valueOf(months+1)); //设置日期
+        }
+
+
 
         myDatepicker.setMode(DPMode.NONE); //设置选择模式
 
         myDatepicker.setFestivalDisplay(false); //是否显示节日
-        myDatepicker.setTodayDisplay(true); //是否高亮显示今天
+        myDatepicker.setTodayDisplay(false); //是否高亮显示今天
         myDatepicker.setHolidayDisplay(false); //是否显示假期
         myDatepicker.setDeferredDisplay(false); //是否显示补休
         myDatepicker.setIsScroll(false); //是否允许滑动 false表示左右上下都不能滑动  单项设置上下or左右 你需要自己扩展
         myDatepicker.setIsSelChangeColor(true, getResources().getColor(R.color.font_white_one)); //设置选择的日期字体颜色,不然有的背景颜色和默认的字体颜色不搭
 
-        myDatepicker.setLeftTitle(2 + "月"); //左上方text
+        myDatepicker.setLeftTitle(Integer.valueOf(months+1) + "月"); //左上方text
         myDatepicker.setRightTitle(false); //是否签到
         myDatepicker.setOnClickSignIn(this); //点击签到事件
 
@@ -115,7 +146,7 @@ public class MainActivityV3 extends AppCompatActivity implements DatePicker.OnCl
             @Override
             public void drawDecorBG(Canvas canvas, Rect rect, Paint paint) {
                 paint.setColor(getResources().getColor(R.color.blue));
-                canvas.drawCircle(rect.centerX(), rect.centerY(), rect.width() / 4F, paint);
+                canvas.drawCircle(rect.centerX(), rect.centerY(), rect.width() / 3F, paint);
             }
         });
 
@@ -144,9 +175,9 @@ public class MainActivityV3 extends AppCompatActivity implements DatePicker.OnCl
         tmp.add("2016-2-21");
         tmp.add("2016-2-22");
         tmp.add("2016-2-25");
-        dpcManager.setDecorBG(tmp);
+        dpcManager.setDecorBG(ssss);
 
-        myDatepicker.setDate(2016, 2);
+        myDatepicker.setDate(2016, 5);
         myDatepicker.setLeftTitle("2月");
         myDatepicker.setRightTitle(true);
 
@@ -164,72 +195,27 @@ public class MainActivityV3 extends AppCompatActivity implements DatePicker.OnCl
 
         @Override
         public void callBack(String result) {
-            if(!TextUtils.isEmpty(result)){
+            if (!TextUtils.isEmpty(result)) {
                 try {
                     JSONObject jo = new JSONObject(result);
-                    if("200".equals(jo.getString("retcode"))){//服务器返回错误
+                    if ("200".equals(jo.getString("retcode"))) {//服务器返回错误
                         Toast.makeText(MainActivityV3.this, jo.getString("code"), Toast.LENGTH_SHORT).show();
                     }
-                    if("300".equals(jo.getString("retcode"))){//参数传递错误
+                    if ("300".equals(jo.getString("retcode"))) {//参数传递错误
                         Toast.makeText(MainActivityV3.this, jo.getString("code"), Toast.LENGTH_SHORT).show();
                     }
-                    if("100".equals(jo.getString("retcode"))){//返回签到天数成功
+                    if ("100".equals(jo.getString("retcode"))) {//签到成功
                         Toast.makeText(MainActivityV3.this, jo.getString("code"), Toast.LENGTH_SHORT).show();
-
-                        jsonObject = jo.getJSONObject("result");
-
-                        JSONArray js = jsonObject.getJSONArray("s_query");
-
-                        ArrayList<Map<String, Object>> list = (ArrayList<Map<String, Object>>) getlistForJson(js.toString());
-
-                        for(int i = 0; i<list.size();i++){
-                            sss.add(list.get(i).get("s_date").toString());
-                        }
-                        //init(sss);
-
+                        mbtn_demo.setText(R.string.btn_yqd);
+                        Singleton.getInstance().e_con_day = jo.getString("e_con_day");
+                        finish();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+            } else {
+                Toast.makeText(MainActivityV3.this, "请检查网络连接！", Toast.LENGTH_SHORT).show();
             }
         }
-    }
-    public static Map<String, Object> getMapForJson(String jsonStr){
-        JSONObject jsonObject ;
-        try {
-            jsonObject = new JSONObject(jsonStr);
-
-            Iterator<String> keyIter= jsonObject.keys();
-            String key;
-            Object value ;
-            Map<String, Object> valueMap = new HashMap<String, Object>();
-            while (keyIter.hasNext()) {
-                key = keyIter.next();
-                value = jsonObject.get(key);
-                valueMap.put(key, value);
-            }
-            return valueMap;
-        } catch (Exception e) {
-            // TODO: handle exception
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public static List<Map<String, Object>> getlistForJson(String jsonStr){
-        List<Map<String, Object>> list = null;
-        try {
-            JSONArray jsonArray = new JSONArray(jsonStr);
-            JSONObject jsonObj ;
-            list = new ArrayList<Map<String, Object>>();
-            for(int i = 0 ; i < jsonArray.length() ; i ++){
-                jsonObj = (JSONObject)jsonArray.get(i);
-                list.add(getMapForJson(jsonObj.toString()));
-            }
-        } catch (Exception e) {
-            // TODO: handle exception
-            e.printStackTrace();
-        }
-        return list;
     }
 }

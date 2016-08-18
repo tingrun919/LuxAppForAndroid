@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CompanyOrder</string>
+    <string name="app_name">天天吃啥</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -17,6 +17,9 @@
     <string name="gridview_mode">GridView Mode</string>
     <string name="listview_mode">ListView Mode</string>
     <string name="demo_loadmore">-loading-</string>
+
+    <string name="btn_qd">我也不知道为什么就是想签个到</string>
+    <string name="btn_yqd">今日已签到</string>
 
     <string name="downloaded">&#160;%s %%</string>
 </resources>

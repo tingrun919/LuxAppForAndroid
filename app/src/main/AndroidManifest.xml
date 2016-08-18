@@ -36,6 +36,7 @@
 
         <activity android:name=".MainActivityV3"></activity>
         <activity android:name=".download.MainActivity3"></activity>
+        <activity android:name=".OrderActivity"></activity>
     </application>
 
 </manifest>

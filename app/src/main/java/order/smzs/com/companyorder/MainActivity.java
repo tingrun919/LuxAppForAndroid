@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -34,6 +35,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import order.smzs.com.companyorder.download.MainActivity3;
 import order.smzs.com.companyorder.image.SmartImageView;
@@ -51,7 +54,8 @@ public class MainActivity extends AppCompatActivity
     private RelativeLayout linearLayout1,linearLayout2;
     private SmartImageView mImageView;
     private JSONObject jsonObject = new JSONObject();
-    ArrayList<String> sss = new ArrayList<String>();
+    private ArrayList<String> sss = new ArrayList<String>();
+    private boolean isExit = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +64,14 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -67,6 +79,7 @@ public class MainActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
+        setTitle("天天吃啥");
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         View nav_view = navigationView.inflateHeaderView(R.layout.nav_nologin_header_main);
@@ -85,7 +98,6 @@ public class MainActivity extends AppCompatActivity
         header_tv1 = (TextView) ss.findViewById(R.id.header_tv1);
         header_tv2 = (TextView) ss.findViewById(R.id.header_tv2);
         header_tv3 = (TextView) ss.findViewById(R.id.header_tv3);
-
 
         linearLayout1 = (RelativeLayout) nav_view.findViewById(R.id.login_ng);
         mTextView = (TextView) nav_view.findViewById(R.id.tv_login);
@@ -156,16 +168,8 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            try {
-                jsonObject.put("user_id", Singleton.getInstance().user_id);
-                jsonObject.put("h_indentify",Singleton.getInstance().h_indentify);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            HttpUtils_new httpUtils_new = new HttpUtils_new().initWith(String.format("%s%s", Singleton.getInstance().httpServer, "/QuerySign.php"),jsonObject,new BackListener2(),MainActivity.this);
-            ThreadPoolUtils.execute(httpUtils_new);
-
             //我要订餐
+            OrderActivity.startAct(MainActivity.this);
         } else if (id == R.id.nav_gallery) {
             //订餐信息查询
         } else if (id == R.id.nav_slideshow) {
@@ -195,11 +199,29 @@ public class MainActivity extends AppCompatActivity
                     MainActivity.this
             );
             ThreadPoolUtils.execute(httpUtils_new);
+        } else if(id == R.id.nav_sign){
+            //我要签到
+            if(Singleton.getInstance().isLogin){
+                startSign();
+            }else{
+                Login_Register_Activity.startAct(MainActivity.this);
+            }
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void startSign() {
+        try {
+            jsonObject.put("user_id", Singleton.getInstance().user_id);
+            jsonObject.put("h_indentify",Singleton.getInstance().h_indentify);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        HttpUtils_new httpUtils_new = new HttpUtils_new().initWith(String.format("%s%s", Singleton.getInstance().httpServer, "/QuerySign.php"),jsonObject,new BackListener2(),MainActivity.this);
+        ThreadPoolUtils.execute(httpUtils_new);
     }
 
     @Override
@@ -210,6 +232,7 @@ public class MainActivity extends AppCompatActivity
             mImageView.setImageUrl(Singleton.getInstance().user_img);
             header_tv1.setText(Singleton.getInstance().user_nickname);
             header_tv2.setText(Singleton.getInstance().h_Name);
+            header_tv3.setText(Singleton.getInstance().e_con_day);
         }
         if(!Constants.ISLOGIN){
             linearLayout2.setVisibility(View.GONE);
@@ -281,18 +304,20 @@ public class MainActivity extends AppCompatActivity
                     }
                     if("100".equals(jo.getString("retcode"))){//返回签到天数成功
                         Toast.makeText(MainActivity.this, jo.getString("code"), Toast.LENGTH_SHORT).show();
+                        String isQd = jo.getJSONObject("result").getString("is_Sign");
 
                         jsonObject = jo.getJSONObject("result");
 
                         JSONArray js = jsonObject.getJSONArray("s_query");
 
                         ArrayList<Map<String, Object>> list = (ArrayList<Map<String, Object>>) getlistForJson(js.toString());
-
+                        sss.clear();
                         for(int i = 0; i<list.size();i++){
                             sss.add(list.get(i).get("s_date").toString());
-                        }
+                    }
 
-                        MainActivityV3.startAct(MainActivity.this,sss);
+
+                        MainActivityV3.startAct(MainActivity.this,sss,isQd);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -337,5 +362,35 @@ public class MainActivity extends AppCompatActivity
             e.printStackTrace();
         }
         return list;
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            exitBy2Click();
+        }
+        return false;
+    }
+
+    /* 退出程序 开始 */
+    private void exitBy2Click() {
+        Timer tExit = null;
+        if (isExit == false) {
+            isExit = true; // 准备退出
+            Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+            tExit = new Timer();
+            tExit.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    isExit = false; // 取消退出
+                }
+            }, 2000); // 如果2秒钟内没有按下返回键，则启动定时器取消掉刚才执行的任务
+
+        } else {
+            //如果不是自动登陆的状态，则把标签改为Null;
+            Constants.ISLOGIN = false;
+            finish();
+            System.exit(0);
+        }
     }
 }

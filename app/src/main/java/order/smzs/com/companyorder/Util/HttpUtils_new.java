@@ -108,11 +108,11 @@ public class HttpUtils_new implements Runnable{
 		}
 	};
 
-	public HttpUtils_new(String url, JSONObject jsonObject, CallbackListener listener){
-		this.url = url;
-		this.jsonObject = jsonObject;
-		this.listener = listener;
-	}
+//	public HttpUtils_new(String url, JSONObject jsonObject, CallbackListener listener){
+//		this.url = url;
+//		this.jsonObject = jsonObject;
+//		this.listener = listener;
+//	}
 
 	public HttpUtils_new initWith(String url, JSONObject jsonObject, CallbackListener listener, Context context){
 

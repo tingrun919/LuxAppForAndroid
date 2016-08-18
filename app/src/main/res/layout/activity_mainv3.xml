@@ -5,8 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
 
@@ -15,4 +15,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+               <Button
+        android:id="@+id/btn_original_demo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_qd"
+        android:textColor="@color/btn_login"
+        android:textSize="22dp"
+        android:background="@drawable/btn_register"
+        />
+
+    </LinearLayout>
 </LinearLayout>

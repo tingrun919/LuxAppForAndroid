@@ -25,6 +25,8 @@ public class Singleton implements Serializable {
         public String h_Name;
         // 活跃餐厅 ID
         public String h_indentify;
+        // 连续签到天数
+        public String e_con_day;
 
 
            private static class SingletonHolder {
@@ -37,9 +39,9 @@ public class Singleton implements Serializable {
           public static Singleton getInstance() {
 
               // 内网测试环境
-              SingletonHolder.INSTANCE.httpServer = "http://192.168.19.47";
+//              SingletonHolder.INSTANCE.httpServer = "http://192.168.19.47";
               // 外网环境
-            //  SingletonHolder.INSTANCE.httpServer = "http://www.tiantianchisha.site";
+              SingletonHolder.INSTANCE.httpServer = "http://www.tiantianchisha.site";
 
               return SingletonHolder.INSTANCE;
 
