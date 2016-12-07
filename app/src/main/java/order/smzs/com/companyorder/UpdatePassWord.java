@@ -15,11 +15,11 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import order.smzs.com.companyorder.model.Singleton;
-import order.smzs.com.companyorder.util.Constants;
-import order.smzs.com.companyorder.util.EncrypMD5;
-import order.smzs.com.companyorder.util.HttpUtils_new;
-import order.smzs.com.companyorder.util.ThreadPoolUtils;
+import order.smzs.com.companyorder.Model.Singleton;
+import order.smzs.com.companyorder.Util.Constants;
+import order.smzs.com.companyorder.Util.EncrypMD5;
+import order.smzs.com.companyorder.Util.HttpUtils_new;
+import order.smzs.com.companyorder.Util.ThreadPoolUtils;
 
 /**
  * Created by Tarn on 2016/5/5.
