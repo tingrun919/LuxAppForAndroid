@@ -23,7 +23,7 @@ import order.smzs.com.companyorder.datasave.OperateGoodsDataBase;
 import order.smzs.com.companyorder.recycler.DividerItemDecoration;
 import order.smzs.com.companyorder.recycler.RecyclerViewContentAdapter;
 import order.smzs.com.companyorder.recycler.RecyclerViewMenuAdapter;
-import order.smzs.com.companyorder.util.GoodsAnimUtil;
+import order.smzs.com.companyorder.Util.GoodsAnimUtil;
 
 
 /**
