@@ -1,4 +1,4 @@
-package order.smzs.com.companyorder.util;
+package order.smzs.com.companyorder.Util;
 
 import android.app.Activity;
 import android.util.DisplayMetrics;

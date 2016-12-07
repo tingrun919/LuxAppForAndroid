@@ -1,4 +1,4 @@
-package order.smzs.com.companyorder.util;
+package order.smzs.com.companyorder.Util;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -116,7 +116,7 @@ public class HttpUtils_new implements Runnable{
 
 	public HttpUtils_new initWith(String url, JSONObject jsonObject, CallbackListener listener, Context context){
 
-		if (order.smzs.com.companyorder.model.NetUtils.isConnected(context)){
+		if (order.smzs.com.companyorder.Model.NetUtils.isConnected(context)){
 			this.url = url;
 			this.jsonObject = jsonObject;
 			this.listener = listener;
