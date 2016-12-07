@@ -39,9 +39,9 @@ import java.util.Date;
 import java.util.UUID;
 
 import order.smzs.com.companyorder.image.SmartImageView;
-import order.smzs.com.companyorder.model.Singleton;
-import order.smzs.com.companyorder.util.HttpUtils_new;
-import order.smzs.com.companyorder.util.ThreadPoolUtils;
+import order.smzs.com.companyorder.Model.Singleton;
+import order.smzs.com.companyorder.Util.HttpUtils_new;
+import order.smzs.com.companyorder.Util.ThreadPoolUtils;
 
 /**
  * Created by Tarn on 2016/5/5.

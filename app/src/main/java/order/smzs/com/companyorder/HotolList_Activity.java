@@ -29,12 +29,12 @@ import java.util.Date;
 import java.util.List;
 
 import order.smzs.com.companyorder.image.SmartImageView;
-import order.smzs.com.companyorder.model.Singleton;
+import order.smzs.com.companyorder.Model.Singleton;
 import order.smzs.com.companyorder.pull.DemoLoadMoreView;
 import order.smzs.com.companyorder.pull.DividerItemDecoration;
 import order.smzs.com.companyorder.pull.PtrrvBaseAdapter;
-import order.smzs.com.companyorder.util.HttpUtils_new;
-import order.smzs.com.companyorder.util.ThreadPoolUtils;
+import order.smzs.com.companyorder.Util.HttpUtils_new;
+import order.smzs.com.companyorder.Util.ThreadPoolUtils;
 
 /**
  * Created by Tarn on 2016/5/5.
