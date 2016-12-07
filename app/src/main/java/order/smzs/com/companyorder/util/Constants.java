@@ -1,4 +1,4 @@
-package order.smzs.com.companyorder.util;
+package order.smzs.com.companyorder.Util;
 
 /**
  * Created by Auser on 2016/5/3.

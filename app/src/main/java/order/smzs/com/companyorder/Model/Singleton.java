@@ -1,4 +1,4 @@
-package order.smzs.com.companyorder.model;
+package order.smzs.com.companyorder.Model;
 
 import java.io.Serializable;
 

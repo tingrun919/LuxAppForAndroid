@@ -24,13 +24,13 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import order.smzs.com.companyorder.model.Singleton;
+import order.smzs.com.companyorder.Model.Singleton;
 import order.smzs.com.companyorder.mydatepicker.DPCManager;
 import order.smzs.com.companyorder.mydatepicker.DPDecor;
 import order.smzs.com.companyorder.mydatepicker.DPMode;
 import order.smzs.com.companyorder.mydatepicker.DatePicker;
-import order.smzs.com.companyorder.util.HttpUtils_new;
-import order.smzs.com.companyorder.util.ThreadPoolUtils;
+import order.smzs.com.companyorder.Util.HttpUtils_new;
+import order.smzs.com.companyorder.Util.ThreadPoolUtils;
 
 public class MainActivityV3 extends AppCompatActivity implements DatePicker.OnClickSignIn {
 

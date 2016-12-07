@@ -1,4 +1,4 @@
-package order.smzs.com.companyorder.util;
+package order.smzs.com.companyorder.Util;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
